@@ -18,9 +18,9 @@
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
-					<h1>Receipt items</h1>
-					<h3> Access code: <b><?= $receiptCode ?></b></h3>
-					<h4>Tap on items you want to pay for</h4>
+					<h1>WhoPay</h1>
+					<h4>Access code: <b><?= $receiptCode ?></b></h4>
+					<h3><span style="color:green; font-weight:bold;">Tap</span> on items you want to pay for</h3>
 					<hr>
 					<form action="/index.php/main/ready" method="post">
 						<input type="hidden" name="userId" value="<?= $userId ?>">
@@ -45,7 +45,7 @@
 		<div class="row">
 			<div class="col-lg-10 col-lg-offset-1 text-center"> 
 				<span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
-				<span>Github: <a href="https://github.com/yipjiajie/WhoPay">WhoPay</a></span>
+				<span>Github: <a href="https://github.com/kiangkuang/WhoPay">WhoPay</a></span>
 			</div>
 		</div>
 	</div>

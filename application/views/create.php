@@ -41,13 +41,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group form-horizontal">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="serviceCharge"> Service Charge 
+										<input type="checkbox" name="serviceCharge">Service Charge
 										<input type="text" class="form-inline" name="serviceChargeValue" value="10" style="width:10%; text-align:center"><span> %</span>
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="tax"> Tax 
+										<input type="checkbox" name="tax">Tax
 										<input type="text" class="form-inline" name="taxValue" value="7" style="width:10%; text-align:center"><span> %</span>
 									</label>
 								</div>
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-lg-10 col-lg-offset-1 text-center"> 
 				<span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
-				<span>Github: <a href="https://github.com/yipjiajie/WhoPay">WhoPay</a></span>
+				<span>Github: <a href="https://github.com/kiangkuang/WhoPay">WhoPay</a></span>
 			</div>
 		</div>
 	</div>

@@ -27,9 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- Item Field -->
 					<div class="form-group">
 						<div id="itemlist">
-							<label>Items:</label>
-							<input type="text" class="form-control itemname" name="items[]" placeholder="Item name">
-							<input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
+							<label>Items:</label><br>
+							<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
 						</div>
 						<br>
 						<!-- Button to add Items -->

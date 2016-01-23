@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
 
 							<!-- Tax and Service Charge -->
-							<p class="help-block">Check if the prices you entered does not include Tax and/or Service Charge.</p>
+							<p class="help-block">Check to apply Tax and/or Service Charge to above prices.</p>
 							<div class="form-group form-inline">
 								<div class="checkbox">
 									<label>

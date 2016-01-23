@@ -105,9 +105,14 @@ class Main extends MY_Controller {
 	}
 
 	// result
-	public function result()
+	public function result($receiptCode = null)
 	{
-		$results = $this->user_item_model->get_raw_result(1);
+		if ($receiptCode === null) {
+			$receiptId = $this->session->receiptId;
+		} else {
+			$receiptId = $this->receipt_model->getByCode($receiptCode)->id;
+		}
+		$results = $this->user_item_model->get_raw_result($receiptId);
 
 		$itemTable = $this->orderByItem($results);
 		$userTable = $this->orderByUser($itemTable);

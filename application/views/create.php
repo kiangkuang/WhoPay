@@ -19,57 +19,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-				<form action="/index.php/main/receipt" method="post">
-					<fieldset>
-						<!-- Name Field -->
-						<div class ="form-group">
-							<!-- <label for="name">Name</label> -->
-							<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
-							<br>
-						</div>
-
-						<!-- Item Field -->
-						<div class="form-group">
-							<div id="itemlist" style="margin-top: 0px;">
-								
-								<!-- <label>Items:</label><br> -->
-								<p>
-									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$ </span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
-								</p>
+					<form action="/index.php/main/receipt" method="post">
+						<fieldset>
+							<!-- Name Field -->
+							<div class ="form-group">
+								<!-- <label for="name">Name</label> -->
+								<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+								<br>
 							</div>
-							<br>
-							<!-- Button to add Items -->
-							<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
-						</div>
 
-						<!-- Tax and Service Charge -->
-						<p class="help-block">Check if the prices you entered does not include Tax and/or Service Charge.</p>
-						<div class="form-group form-inline">
-							<div class="checkbox">
-								<label>
-									<input type="checkbox"> Service Charge 
-									<input type="text" class="form-control" name="servicecharge" value="10%" style="width:30%">
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-									<input type="checkbox"> Tax 
-									<input type="text" class="form-control" name="tax" value="7%" style="width:40%">
-								</label>
-							</div>
-						</div>
+							<!-- Item Field -->
+							<div class="form-inline">
+								<div id="itemlist" style="margin-top: 0px;">
 
-						<!-- Submit and Cancel Buttons -->
-						<div class="form-group">
-			
+									<!-- <label>Items:</label><br> -->
+
+									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name">
+									
+									<div class="input-group">
+									<span class="input-group-addon">$</span>
+										<input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
+									</div>
+
+								</div>
+								<br>
+								<!-- Button to add Items -->
+								<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
+							</div>
+
+							<!-- Tax and Service Charge -->
+							<p class="help-block">Check if the prices you entered does not include Tax and/or Service Charge.</p>
+							<div class="form-group form-inline">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> Service Charge 
+										<input type="text" class="form-control" name="servicecharge" value="10%" style="width:30%">
+									</label>
+								</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> Tax 
+										<input type="text" class="form-control" name="tax" value="7%" style="width:40%">
+									</label>
+								</div>
+							</div>
+
+							<!-- Submit and Cancel Buttons -->
+							<div class="form-group">
+
 								<a href="/" class="btn btn-default">Cancel</a>
 								<button type="submit" class="btn btn-primary" value="Submt">Submit</button>
-							
-						</div>
-					
-					</fieldset>
-				</form>
-				<hr>
+
+							</div>
+
+						</fieldset>
+					</form>
+					<hr>
 				</div>
 			</div>
 		</div>

@@ -67,14 +67,14 @@
 
 .itemname {
 	display: inline-block;
-	width:80%;
+	width:65% !important;
 }
 
 .itemcost {
 	display:inline-block;
-	width:16%;
+	width:30% !important;
 }
 
-.dollarsign {
-  padding-left: 10px;
+.input-group-addon {
+  width:5% !important;
 }

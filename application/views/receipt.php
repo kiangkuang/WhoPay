@@ -17,20 +17,13 @@
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
-					<h1>Receipt items</h1><br>
-					<h3>Tap on items to pay</h3>
-					<hr>
-					<form method="post" action="/index.php/main/receipt">
-						<div class="form-group">
-							<input class="form-control" id="focusedInput" type="text" name="receiptCode" placeholder="Enter receipt code">
-						</div>
-						<div class="form-group">
-							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name">
-						</div>
-						<input type="submit" class="btn btn-default" value="Join">
-						<a href="/" class="btn btn-default">Back</a>
-					</form>
-					<hr>
+					<h1>Receipt items</h1>
+					<h3> Access code: </h3>
+					<h4>Tap on items you want to pay for</h4>
+					<a href="#" class="btn btn-default">Not paying</a>
+					<a href="#" class="btn btn-success">Paying</a>
+					
+					
 				</div>
 			</div>
 		</div>

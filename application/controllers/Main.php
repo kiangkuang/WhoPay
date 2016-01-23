@@ -94,7 +94,7 @@ class Main extends MY_Controller {
 	// result
 	public function result()
 	{
-		$results = $this->user_item_model->get_raw_result($receipt_id);
+		$results = $this->user_item_model->get_raw_result($this->session->receiptId);
 
 		$data['itemTable'] = $this->orderByItem($results);
 

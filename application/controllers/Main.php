@@ -30,6 +30,12 @@ class Main extends MY_Controller {
 		$this->load->view('ocr');
 	}
 
+	//join
+	public function join()
+	{
+		$this->load->view('join');
+	}
+
 	// lobby
 	public function receipt($receipt_id)
 	{

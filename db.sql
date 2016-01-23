@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `whopay_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `whopay_db`;
+-- MySQL dump 10.13  Distrib 5.6.23, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: whopay_db
 -- ------------------------------------------------------
--- Server version	5.7.9
+-- Server version	5.6.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,7 +30,7 @@ CREATE TABLE `item` (
   `name` varchar(45) NOT NULL,
   `cost` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +39,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
+INSERT INTO `item` VALUES (1,1,'POKKA LEMON TEA500M_',1.2),(2,1,'POKKA LEMON TEA500M_',1.2),(3,1,'TO T/CHP-R/ST 283.5G',5.45),(4,1,'TOS SAL DIP-HOT439.4',5.45),(5,1,'M SP MSHRM B/NDL116G',1.4),(6,1,'NS BIG BWL-M0\'RM 117G',1.45),(7,1,'NS BIG BWL-M0\'RM 117G',1.45),(8,1,'N C/N-BK PEPR CRB81G',1.5),(9,1,'NIS CUP NDL-T/Y 75G',1.5);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +54,7 @@ CREATE TABLE `receipt` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,6 +63,7 @@ CREATE TABLE `receipt` (
 
 LOCK TABLES `receipt` WRITE;
 /*!40000 ALTER TABLE `receipt` DISABLE KEYS */;
+INSERT INTO `receipt` VALUES (1,'VC3439');
 /*!40000 ALTER TABLE `receipt` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,7 +79,7 @@ CREATE TABLE `user` (
   `receipt_id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,6 +88,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,1,'Oswell'),(2,1,'Kk'),(3,1,'yip'),(4,1,'Victor');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +105,7 @@ CREATE TABLE `user_item` (
   `user_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,6 +114,7 @@ CREATE TABLE `user_item` (
 
 LOCK TABLES `user_item` WRITE;
 /*!40000 ALTER TABLE `user_item` DISABLE KEYS */;
+INSERT INTO `user_item` VALUES (1,1,1,1),(2,1,1,3),(3,1,1,4),(4,1,1,7),(5,1,1,8),(6,1,2,3),(7,1,2,7),(8,1,2,9),(9,1,3,3),(10,1,3,4),(11,1,3,5),(12,1,3,6),(13,1,4,2),(14,1,4,3),(15,1,4,4),(16,1,4,6),(17,1,4,9);
 /*!40000 ALTER TABLE `user_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -121,4 +127,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-23 15:48:20
+-- Dump completed on 2016-01-23 16:38:12

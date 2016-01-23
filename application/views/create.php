@@ -1,24 +1,39 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>WhoPay</title>
+	<meta name="description" content="Creating a new Bill">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/dist/css/paper.min.css">
+  <link rel="stylesheet" href="/assets/assets/css/style.css">
 </head>
 <body>
+	<div class="container">
+		<form action="/main/createManual" method="post">
+			<div class ="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" id="name" placeholder="Enter your name">
+			</div>
+			<div class="form-group">
+				<label>Items:</label>
+				<input type="text" class="form-control" id="itemname" name="items[]" placeholder="Item name">
+				<input type="text" class="form-control" id="itemcost" name="itemcosts[]" placeholder="Price of Item"><br>
+				<button type="button" class="btn btn-default btn-sm" id="additem">Add item</button>
+			</div>
+			<input type="submit" class="btn btn-default" value="Submit">
+		</form>
+	</div>
+	<script type="text/javascript" src="/assets/dist/js/vendor/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/dist/js/paper.min.js"></script>
+  <script type="text/javascript">
+    window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+  </script>
+  <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
 
-	<form action="/main/createManual" method="post">
-		Name:<br>
-		<input type="text" name="name" placeholder="name pls"><br>
-		Items:<br>
-		<input type="text" name="items[]" placeholder="item name???"><input type="text" name="itemprices[]" placeholder="price pls"><br>
-		<input type="text" name="items[]" placeholder="item name???"><input type="text" name="itemprices[]" placeholder="price pls"><br>
-		<input type="text" name="items[]" placeholder="item name???"><input type="text" name="itemprices[]" placeholder="price pls"><br>
-		<input type="text" name="items[]" placeholder="item name???"><input type="text" name="itemprices[]" placeholder="price pls"><br>
-
-		<br>
-		<input type="submit" value="Submit">
-	</form>
 </body>
 </html>

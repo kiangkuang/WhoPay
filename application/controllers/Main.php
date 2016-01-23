@@ -71,11 +71,16 @@ class Main extends MY_Controller {
 			// generate items
 			$items = $input['items']; // array of item names
 			$itemcosts = $input['itemcosts']; // array of item prices
+			$hasServiceCharge = isset($input['serviceCharge']);
+			$serviceCharge = $input['serviceChargeValue'];
+			$hasTax = isset($input['tax']);
+			$tax = $input['taxValue'];
 			$itemArray = []; // array of item name and prices
 			foreach ($items as $i => $item) {
+
 				$itemArray[] = [
 					'name' => $items[$i],
-					'cost' => $itemcosts[$i],
+					'cost' => $this->getRealCost($hasServiceCharge, $serviceCharge, $hasTax, $tax, $itemcosts[$i]),
 					'receipt_id' => $receiptId,
 				];
 			}
@@ -91,6 +96,20 @@ class Main extends MY_Controller {
 		$data['userId'] = $userId;
 
 		$this->load->view('receipt', $data);
+	}
+
+	private function getRealCost($hasServiceCharge, $serviceCharge, $hasTax, $tax, $cost) {
+		if ($hasServiceCharge) {
+			$charge = 1 + (int) $serviceCharge / 100.0;
+			$cost *= $charge;
+		}
+
+		if ($hasTax) {
+			$charge = 1 + (int) $tax / 100.0;
+			$cost *= $charge;
+		}
+
+		return $cost;
 	}
 
 	public function ready()

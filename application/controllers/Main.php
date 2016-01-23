@@ -94,7 +94,78 @@ class Main extends MY_Controller {
 	// result
 	public function result()
 	{
-		var_dump($this->input->post());
-		$this->load->view('result');
+		$results = $this->user_item_model->get_raw_result($receipt_id);
+
+		$data['itemTable'] = $this->orderByItem($results);
+
+		$data['userTable'] = $this->orderByUser($itemTable);
+
+		$this->load->view('result', $data);
 	}
+
+	private function orderByItem($results) {
+		$itemTable = array();
+
+		$currentItemId = 0;
+		$sameItemCount = 0;
+		$totalItems = count($results);
+
+		for ($i = 0; $i < $totalItems; $i++) {
+
+			$results_row = $results[$i];
+
+			//we have a new item
+			if ($results_row->id != $currentItemId) {
+
+				//Update all costs person needs to pay
+				for ($j = 0; $j < $sameItemCount; $j++) {
+					$itemTable[$currentItemId][$j + 1][2] /= $sameItemCount;
+				}
+
+				//Associate the itemId with itemName
+				$currentItemId = $results_row->id;
+
+				//Put a new entry under the new name
+				$newEntry = array($results_row->name, array($results_row->userId, $results_row->userName, $results_row->cost));
+				$itemTable[$currentItemId] = $newEntry;
+
+				$sameItemCount = 0;
+			} else {
+				array_push($itemTable[$currentItemId], array($results_row->userId, $results_row->userName, $results_row->cost));
+			}
+
+			if ($i == $totalItems - 1) {
+				$sameItemCount++;
+				for ($j = 0; $j < $sameItemCount; $j++) {
+					$itemTable[$currentItemId][$j + 1][2] /= $sameItemCount;
+				}
+			}
+
+			$sameItemCount++;
+		}
+
+		return $itemTable;
+	}
+
+	private function orderByUser($itemTable) {
+		$userTable = array();
+
+		$totalItems = count($itemTable);
+
+		foreach ($itemTable as $payers) {
+			$totalPayers = count($payers);
+
+			for ($j = 1; $j < $totalPayers; $j++) {
+				$payer = $payers[$j];
+				if (isset($userTable[$payer[0]])) {
+					$userTable[$payer[0]][1] += $payer[2];
+					array_push($userTable[$payer[0]], array($payers[0], $payer[2]));
+				} else {
+					$userTable[$payer[0]] = array($payer[1], $payer[2], array($payers[0], $payer[2]));
+				}	
+			}	
+		}
+
+		return $userTable;
+	}	
 }

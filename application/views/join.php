@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<hr>
 					<form method="post" action="/index.php/main/receipt">
 						<div class="form-group">
-							<input class="form-control" id="focusedInput" type="text" name="receiptCode" placeholder="Enter receipt code">
+							<input class="form-control" id="focusedInput" type="text" name="receiptCode" placeholder="Enter access code provided by host">
 						</div>
 						<div class="form-group">
 							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name">

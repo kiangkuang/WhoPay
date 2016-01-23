@@ -29,8 +29,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="form-group">
 							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name">
 						</div>
-						<input type="submit" class="btn btn-default" value="Join">
 						<a href="/" class="btn btn-default">Back</a>
+						<input type="submit" class="btn btn-primary" value="Join">
 					</form>
 					<hr>
 				</div>
@@ -42,10 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Footer -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1 text-center">
-				<span>Released under MIT License</span> | 
+			<div class="col-lg-10 col-lg-offset-1 text-center"> 
 				<span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
-				<span>Made by <a href="https://github.com/sudharti">sudharti</a></span>
+				<span>Github: <a href="https://github.com/yipjiajie/WhoPay">WhoPay</a></span>
 			</div>
 		</div>
 	</div>

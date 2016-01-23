@@ -30,7 +30,6 @@
 						        <input type="checkbox" class="hidden" name="itemId" value="<?= $item->id ?>"/>
 						    </span>
 						<?php endforeach; ?>
-						
 						<button id="ready" type="submit" class="btn btn-default">Ready</button>
 						<a href="/index.php/main/result" id="submit" class="btn btn-primary disabled">Submit</a>
 					</form>
@@ -44,10 +43,9 @@
 	<!-- Footer -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1 text-center">
-				<span>Released under MIT License</span> | 
+			<div class="col-lg-10 col-lg-offset-1 text-center"> 
 				<span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
-				<span>Made by <a href="https://github.com/sudharti">sudharti</a></span>
+				<span>Github: <a href="https://github.com/yipjiajie/WhoPay">WhoPay</a></span>
 			</div>
 		</div>
 	</div>

@@ -72,5 +72,9 @@
 
 .itemcost {
 	display:inline-block;
-	width:20%;
+	width:16%;
+}
+
+.dollarsign {
+  padding-left: 10px;
 }

@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								
 								<!-- <label>Items:</label><br> -->
 								<p>
-									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
+									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$ </span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
 								</p>
 							</div>
 							<br>

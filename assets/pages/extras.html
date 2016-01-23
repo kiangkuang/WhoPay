@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Extras - Paper | A Simple, Elegant &amp; Flat Bootstrap Theme</title>
+  <meta name="description" content="A Simple, Elegant &amp; Flat Bootstrap Theme">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../dist/css/paper.min.css">
+  <link rel="stylesheet" href="../templates/css/prism.css">
+</head>
+<body data-spy="scroll" data-target="#features-nav" style="position: relative;">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Paper</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="css.html">CSS</a></li>
+          <li><a href="components.html">Components</a></li>
+          <li class="active"><a href="extras.html">Extras</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="getting-started.html">Getting Started</a></li>
+          <li><a href="../templates/index.html">Templates</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="col-lg-3">
+      <div id="features-nav" data-spy="affix">
+        <br><h4><b>Extras</b></h4>
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="#cards">Cards</a></li>
+          <li><a href="#feed">Feed</a></li>
+          <li><a href="#pricing">Pricing Tables</a></li>
+          <li><a href="#slider">Slider Panel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div id="cards">
+        <h2><b>Cards</b></h2>
+        <br>
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="card">
+              <div class="cover" data-fade="1500" data-duration="2500">
+                <ul class="cover-pics">
+                  <li><img src="../assets/img/img-1.jpg"></li>
+                  <li><img src="../assets/img/img-2.jpg"></li>
+                  <li><img src="../assets/img/img-3.jpg"></li>
+                  <li><img src="../assets/img/img-4.jpg"></li>
+                  <li><img src="../assets/img/img-5.jpg"></li>
+                  <li><img src="../assets/img/img-6.jpg"></li>
+                  <li><img src="../assets/img/img-7.jpg"></li>
+                  <li><img src="../assets/img/img-8.jpg"></li>
+                </ul>
+                <img src="https://en.gravatar.com/userimage/23763355/e7bbf514106dc2fd9ddb4e8160a72e8c.png" alt="" class="avatar">
+              </div>
+              <div class="about">
+                <h3 class="name">Sudharsanan M</h3>
+                <h5 class="username">@sudharti</h5>
+                <span class="content">22 | Hacker | Technophile | Blogger | Android Dev | Rails Fanboy | Rubyist</span>
+                <br>
+                <label><i class="fa fa-map-marker"></i> Dallas, Texas</label>
+              </div>
+            </div>            
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="card">
+              <div class="cover" data-cover="../assets/img/background-1.jpg">
+                <img src="../templates/img/avatar.png" alt="" class="avatar">
+              </div>
+              <div class="about">
+                <h3 class="name">Bootstrap</h3>
+                <h5 class="username">@bootstrap</h5>
+                <span class="content">Bootstrap | Twitter | v3.3</span>
+                <br><br>
+                <label><i class="fa fa-link"></i> <a href="http://getbootstrap.com">getbootstrap.com</a></label>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="card">
+              <div class="cover" data-cover="../assets/img/background-2.jpg">
+                <img src="../templates/img/avatar_3.png" alt="" class="avatar">
+              </div>
+              <div class="about">
+                <h3 class="name">Ruby on Rails</h3>
+                <h5 class="username">@rails</h5>
+                <span class="content">MVC | Built on Ruby | Open Source</span>
+                <br><br>
+                <label><i class="fa fa-link"></i> <a href="http://rubyonrails.org/">http://rubyonrails.org/</a></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <h4><b><i class="fa fa-code"></i> Sample Code</b></h4>
+      <pre data-src="../templates/code-templates/card-template.html"></pre>
+      <br><hr>
+      <div id="feed">
+        <h2><b>Feed</b></h2><br>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="feed">
+              <div class="micropost">
+                <div class="content">
+                  <div class="avatar-content">
+                    <img src="../templates/img/avatar_3.png" alt="../templates/img/avatar_3.png">
+                  </div>
+                  <div class="post-content">
+                    <span class="name">Ruby on Rails</span>
+                    <span class="username">@rails</span>
+                    <div class="post">
+                      Ruby on Rails is awesome! <span class="hashtags">#Rails</span>
+                    </div>
+                  </div>
+                  <div class="right-content">
+                    <span>4 min</span>
+                  </div>
+                </div>
+                <div class="actions">
+                  <div class="actions-content">
+                    <a href="#"><i class="fa fa-arrow-left"></i></a>
+                    <a href="#"><i class="fa fa-retweet"></i></a>
+                    <a href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="micropost">
+                <div class="content">
+                  <div class="avatar-content">
+                    <img src="../templates/img/avatar_4.png" alt="../templates/img/avatar_4.png">
+                  </div>
+                  <div class="post-content">
+                    <span class="name">Developer</span>
+                    <span class="username">@developer</span>
+                    <div class="post">
+                      Developing some cool stuff now 
+                      <span class="hashtags">#Javascript #Fun</span>
+                    </div>
+                  </div>
+                  <div class="right-content">
+                    <span>6 min</span>
+                  </div>
+                </div>
+                <div class="actions">
+                  <div class="actions-content">
+                    <a href="#"><i class="fa fa-arrow-left"></i></a>
+                    <a href="#"><i class="fa fa-retweet"></i></a>
+                    <a href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="micropost">
+                <div class="content">
+                  <div class="avatar-content">
+                    <img src="../templates/img/avatar_2.png" alt="../templates/img/avatar_2.png">
+                  </div>
+                  <div class="post-content">
+                    <span class="name">User Experience</span>
+                    <span class="username">@ux</span>
+                    <div class="post">
+                      Some of the coolest designs I have seen <a href="#">p.co/hello-world</a>
+                    </div>
+                  </div>
+                  <div class="right-content">
+                    <span>4 min</span>
+                  </div>
+                </div>
+                <div class="actions">
+                  <div class="actions-content">
+                    <a href="#"><i class="fa fa-arrow-left"></i></a>
+                    <a href="#"><i class="fa fa-retweet"></i></a>
+                    <a href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="micropost">
+                <div class="content">
+                  <div class="avatar-content">
+                    <img src="https://en.gravatar.com/userimage/23763355/e7bbf514106dc2fd9ddb4e8160a72e8c.png">
+                  </div>
+                  <div class="post-content">
+                    <span class="name">Sudharsanan M</span>
+                    <span class="username">@sudharti</span>
+                    <div class="post">
+                      <span class="mention">@rails</span> Ruby on Rails is awesome! 
+                      <span class="hashtags">#Rails</span>
+                    </div>
+                  </div>
+                  <div class="right-content">
+                    <span>4 min</span>
+                  </div>
+                </div>
+                <div class="actions">
+                  <div class="actions-content">
+                    <a href="#"><i class="fa fa-arrow-left"></i></a>
+                    <a href="#"><i class="fa fa-retweet"></i></a>
+                    <a href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h4><b><i class="fa fa-code"></i> Sample Code</b></h4>
+        <pre data-src="../templates/code-templates/feed-template.html"></pre>
+        <br><hr>
+        <div id="pricing">
+          <h2><b>Pricing Tables</b></h2><br>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="pricing-table">
+                <div class="header">
+                  <span class="title">$20</span>
+                  <span class="subtitle">every 50 transactions</span>
+                </div>
+                <div class="center">
+                  <h4 class="text-center"><b>Premium</b></h4>
+                  <ul>
+                    <li><i class="fa fa-check"></i> 6 months</li>
+                    <li><i class="fa fa-check"></i> Profile Management</li>
+                    <li><i class="fa fa-check"></i> SEO services</li>
+                    <li><i class="fa fa-check"></i> Rating</li>
+                    <li><i class="fa fa-check"></i> Reports/Analysis</li>
+                  </ul>
+                </div>
+                <div class="foot">
+                  <button class="btn btn-success">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="pricing-table gold">
+                <div class="header">
+                  <span class="title">$60</span>
+                  <span class="subtitle">every 50 transactions</span>
+                </div>
+                <div class="center">
+                  <h4 class="text-center"><b>Gold</b></h4>
+                  <ul>
+                    <li><i class="fa fa-check"></i> 6 months</li>
+                    <li><i class="fa fa-check"></i> Profile Management</li>
+                    <li><i class="fa fa-check"></i> SEO services</li>
+                    <li><i class="fa fa-check"></i> Rating</li>
+                    <li><i class="fa fa-check"></i> Reports/Analysis</li>
+                  </ul>
+                </div>
+                <div class="foot">
+                  <button class="btn btn-success">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="pricing-table basic">
+                <div class="header">
+                  <span class="title">$10</span>
+                  <span class="subtitle">every 50 transactions</span>
+                </div>
+                <div class="center">
+                  <h4 class="text-center"><b>Basic</b></h4>
+                  <ul>
+                    <li><i class="fa fa-check"></i> 6 months</li>
+                    <li><i class="fa fa-check"></i> Profile Management</li>
+                    <li><i class="fa fa-check"></i> SEO services</li>
+                    <li><i class="fa fa-check"></i> Rating</li>
+                    <li><i class="fa fa-check"></i> Reports/Analysis</li>
+                  </ul>
+                </div>
+                <div class="foot">
+                  <button class="btn btn-success">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="pricing-table enterprise">
+                <div class="header">
+                  <span class="title">$80</span>
+                  <span class="subtitle">every 50 transactions</span>
+                </div>
+                <div class="center">
+                  <h4 class="text-center"><b>Enterprise</b></h4>
+                  <ul>
+                    <li><i class="fa fa-check"></i> 6 months</li>
+                    <li><i class="fa fa-check"></i> Profile Management</li>
+                    <li><i class="fa fa-check"></i> SEO services</li>
+                    <li><i class="fa fa-check"></i> Rating</li>
+                    <li><i class="fa fa-check"></i> Reports/Analysis</li>
+                  </ul>
+                </div>
+                <div class="foot">
+                  <button class="btn btn-success">Select</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="pricing-table free">
+                <div class="header">
+                  <span class="title">$0</span>
+                  <span class="subtitle">every 50 transactions</span>
+                </div>
+                <div class="center">
+                  <h4 class="text-center"><b>Free</b></h4>
+                  <ul>
+                    <li><i class="fa fa-check"></i> 6 months</li>
+                    <li><i class="fa fa-check"></i> Profile Management</li>
+                    <li><i class="fa fa-check"></i> SEO services</li>
+                    <li><i class="fa fa-check"></i> Rating</li>
+                    <li><i class="fa fa-check"></i> Reports/Analysis</li>
+                  </ul>
+                </div>
+                <div class="foot">
+                  <button class="btn btn-success">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h4><b><i class="fa fa-code"></i> Sample Code</b></h4>
+        <pre data-src="../templates/code-templates/pricing-table-template.html"></pre>
+        <br><hr>
+        <div id="slider">
+          <h2><b>Slider Panel</b></h2>
+          <h4><b>What is it?</b></h4>
+          A simple slider panel implementation. It is an additional component integrated with Paper.
+          <br><br>
+          <div class="row">
+            <div class="col-lg-10">
+              <div class="thumbnail">
+                <img src="../assets/img/slider.jpg" alt="slider">
+              </div>
+            </div>
+          </div>
+          <h4><b>How to use it?</b></h4>
+          To use it check out the docs and demo here <a href="slider.html">Slider Docs</a>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <span>Released under MIT License</span> | 
+          <span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
+          <span>Made by <a href="https://github.com/sudharti">sudharti</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../dist/js/vendor/jquery.min.js"></script>
+  <script type="text/javascript" src="../dist/js/paper.min.js"></script>
+  <script type="text/javascript" src="../templates/js/prism.js"></script>
+</body>
+</html>

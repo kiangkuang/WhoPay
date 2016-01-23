@@ -1,0 +1,126 @@
+.navbar-avatar {
+  width: 25px;
+  border-radius: 10rem;
+}
+
+.navbar li a.navbar-icons {
+  font-size: 2rem;
+  padding: 15px;
+  color: #505050;
+  margin-right: 5px;
+}
+
+#notification {
+  font-size: 1.75rem;
+}
+
+.dropdown li {
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.dropdown-title {
+  background-color: #f0f0f0;
+  padding: 5px 20px;
+  cursor: default;
+}
+
+.well {
+  padding: 0;
+  border: none;
+}
+
+#new-micropost textarea {
+  border: 2px solid #ccc;
+  resize: none;
+  max-height: 100px;
+}
+
+#new-micropost textarea:focus {
+  border: 2px solid #000;
+}
+
+#location {
+  margin-top: 20px;
+}
+
+.mention {
+  font-weight: 700; 
+  color: #019c70;
+}
+
+.hashtags {
+  color: #4285f4;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.link {
+  color: #4285f4;
+}
+
+#microposts {
+  margin-bottom: 40px;
+}
+
+.footer {
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+.footer h5 {
+  margin-left: 10px;
+}
+
+.footer a {
+  font-size: 1.2rem;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.panel-list {
+  padding-left: 0px;
+  list-style: none;
+}
+
+.panel-list li {
+  padding: 5px 10px;
+}
+
+.avatar {
+  width: 35px;
+  border-radius: 10rem;
+}
+
+#suggestions .name, #suggestions .username {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+#suggestions .name {
+  color: #000;
+}
+
+#suggestions li {
+  margin-top: 5px;
+}
+
+.input-group {
+  margin-right: 10px;
+}
+
+.input-group input {
+  border: 1px solid #c0c0c0;
+  border-right: none;
+  border-radius: 10em;
+}
+
+.input-group input:focus {
+  border: 1px solid #c0c0c0;
+  border-right: none;
+}
+
+.input-group-addon {
+  background-color: #fff;
+  border: 1px solid #c0c0c0;
+  border-radius: 10em;
+}

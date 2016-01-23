@@ -40,20 +40,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="form-group">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" value="1.10">Include Service Charge
+								<input type="checkbox">Include Service Charge 
+								<input type="number" class="form-control" name="servicecharge" value="10">
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" value="1.07">Include Tax
+								<input type="checkbox">Include Tax 
+								<input type="number" class="form-control" name="tax" value="7">
 							</label>
 					</div>
+
 					<!-- Button to submit -->
 					<button type="submit" class="btn btn-default" value="Submit"> Submit </button>
 				</form>
 			</div>
 		</div>
 	</div>
+
 	<script type="text/javascript" src="/assets/dist/js/vendor/jquery.min.js"></script>
   <script type="text/javascript" src="/assets/dist/js/paper.min.js"></script>
   <script type="text/javascript">

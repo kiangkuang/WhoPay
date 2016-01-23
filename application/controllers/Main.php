@@ -31,8 +31,33 @@ class Main extends MY_Controller {
 	}
 
 	// lobby
-	public function receipt($receipt_id)
+	public function receipt()
 	{
+		$input = $this->input->post();
+
+		// generate receipt code
+		$receiptCode = substr(uniqid(), -6);
+		$receiptId = $this->receipt_model->insert(['code' => $receiptCode]);
+		$this->session->set_userdata('receiptId', $receiptId);
+		
+		// generate user session
+		$name = $input['name']; // user name
+		$userId = $this->user_model->insert(['name' => $name, 'receipt_id' => $receiptId]);
+		$this->session->set_userdata('userId', $userId);
+
+		// generate items
+		$items = $input['items']; // array of item names
+		$itemcosts = $input['itemcosts']; // array of item prices
+		$itemArray = []; // array of item name and prices
+		foreach ($items as $i => $item) {
+			$itemArray[] = [
+				"name" => $items[$i],
+				"cost" => $itemcosts[$i],
+				"receipt_id" => $receiptId,
+			];
+		}
+		$this->item_model->insertBatch($itemArray);
+
 		$this->load->view('receipt');
 	}
 
@@ -40,21 +65,5 @@ class Main extends MY_Controller {
 	public function result($receipt_id)
 	{
 		$this->load->view('result');
-	}
-
-	// posted user and items array
-	public function createManual()
-	{
-		$input = $this->input->post();
-		$items = $input['items'];
-
-		$userId = $this->makeNewUser($input['name']);
-		$this->session->set_userdata('userId', $userId);
-	}
-
-	// returns id of new user
-	private function makeNewUser($name)
-	{
-		return $this->user_model->insert(['name' => $name]);
 	}
 }

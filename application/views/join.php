@@ -29,6 +29,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<input class="form-control" id="focusedInput" type="text" placeholder="Enter your name">
 					</div>
 					<a href="index.php/main/receipt" class="btn btn-default">Join</a>
+					<form method="post" action="/index.php/main/receipt">
+						<div class="form-group">
+							<input class="form-control" id="focusedInput" type="text" name="receiptCode" placeholder="Enter receipt code">
+						</div>
+						<div class="form-group">
+							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name">
+						</div>
+						<input type="submit" class="btn btn-default" value="Join">
+					</form>
 					<a href="/" class="btn btn-default">Back</a>
 					<hr>
 				</div>

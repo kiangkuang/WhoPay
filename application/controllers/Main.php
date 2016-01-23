@@ -41,9 +41,15 @@ class Main extends MY_Controller {
 	{
 		$input = $this->input->post();
 
-		// generate receipt code
-		$receiptCode = substr(uniqid(), -6);
-		$receiptId = $this->receipt_model->insert(['code' => $receiptCode]);
+		if (isset($input['receiptCode'])) {
+			// join receipt
+			$receiptCode = $this->input->post('receiptCode');
+			$receiptId = $this->receipt_model->getByCode($receiptCode)->id;
+		} else {
+			// create receipt
+			$receiptCode = substr(uniqid(), -6);
+			$receiptId = $this->receipt_model->insert(['code' => $receiptCode]);
+		}
 		$this->session->set_userdata('receiptId', $receiptId);
 		
 		// generate user session
@@ -51,18 +57,22 @@ class Main extends MY_Controller {
 		$userId = $this->user_model->insert(['name' => $name, 'receipt_id' => $receiptId]);
 		$this->session->set_userdata('userId', $userId);
 
-		// generate items
-		$items = $input['items']; // array of item names
-		$itemcosts = $input['itemcosts']; // array of item prices
-		$itemArray = []; // array of item name and prices
-		foreach ($items as $i => $item) {
-			$itemArray[] = [
-				"name" => $items[$i],
-				"cost" => $itemcosts[$i],
-				"receipt_id" => $receiptId,
-			];
+		if (!isset($input['receiptCode'])) {	
+			// generate items
+			$items = $input['items']; // array of item names
+			$itemcosts = $input['itemcosts']; // array of item prices
+			$itemArray = []; // array of item name and prices
+			foreach ($items as $i => $item) {
+				$itemArray[] = [
+					'name' => $items[$i],
+					'cost' => $itemcosts[$i],
+					'receipt_id' => $receiptId,
+				];
+			}
+			$this->item_model->insertBatch($itemArray);
 		}
-		$this->item_model->insertBatch($itemArray);
+
+		var_dump($receiptId, $userId);
 
 		$this->load->view('receipt');
 	}

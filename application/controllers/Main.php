@@ -40,11 +40,21 @@ class Main extends MY_Controller {
 	public function receipt()
 	{
 		$input = $this->input->post();
+		if (!$input) {
+			header('Location: '.'/');
+			exit;
+		}
 
 		if (isset($input['receiptCode'])) {
 			// join receipt
 			$receiptCode = $this->input->post('receiptCode');
-			$receiptId = $this->receipt_model->getByCode($receiptCode)->id;
+			$receipt = $this->receipt_model->getByCode($receiptCode);
+			if ($receipt !== false) {
+				$receiptId = $receipt->id;
+			} else {
+				header('Location: '.'/');
+				exit;
+			}
 		} else {
 			// create receipt
 			$receiptCode = substr(uniqid(), -6);
@@ -72,7 +82,7 @@ class Main extends MY_Controller {
 			$this->item_model->insertBatch($itemArray);
 		}
 
-		var_dump($receiptId, $userId);
+		var_dump($this->item_model->getByReceiptId($receiptId));
 
 		$this->load->view('receipt');
 	}

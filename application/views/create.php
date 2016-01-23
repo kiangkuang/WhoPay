@@ -16,10 +16,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
-				<form action="/main/createManual" method="post">
+				<form action="/main/receipt" method="post">
 					<div class ="form-group">
 						<label for="name">Name</label>
-						<input type="text" class="form-control" id="name" placeholder="Enter your name">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
 					</div>
 					<div class="form-group">
 						<label>Items:</label>

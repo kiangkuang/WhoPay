@@ -92,8 +92,9 @@ class Main extends MY_Controller {
 	}
 
 	// result
-	public function result($receipt_id)
+	public function result()
 	{
+		var_dump($this->input->post());
 		$this->load->view('result');
 	}
 }

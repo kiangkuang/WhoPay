@@ -22,13 +22,16 @@
 					<h3> Access code: <b><?= $receiptCode ?></b></h3>
 					<h4>Tap on items you want to pay for</h4>
 					<hr>
-					<?php foreach ($items as $item): ?>
-					<div id="ck-button">
-						<label>
-							<input type="checkbox" value="1"><span><?= $item->name?></span>&nbsp;<span class="pull-right">$<?= $item->cost ?></span>
-						</label>
-					</div>
-					<?php endforeach; ?>
+					<form action="/main/result" method="post">
+						<?php foreach ($items as $item): ?>
+						    <span class="button-checkbox">
+						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name?></span><span class="pull-right">$<?= $item->cost ?></span></button>
+						        <input type="checkbox" class="hidden" name="<?= $item->id ?>" value="1"/>
+						    </span>
+						<?php endforeach; ?>
+						
+						<button type="submit" class="btn btn-default" value="Submit">Submit</button>
+					</form>
 				</div>
 				<hr>
 			</div>
@@ -53,5 +56,53 @@
 		window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
 	</script>
 	<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+	<script>
+		$(function () {
+		    $('.button-checkbox').each(function () {
+
+		        // Settings
+		        var $widget = $(this),
+		            $button = $widget.find('button'),
+		            $checkbox = $widget.find('input:checkbox'),
+		            color = $button.data('color');
+
+		        // Event Handlers
+		        $button.on('click', function () {
+		            $checkbox.prop('checked', !$checkbox.is(':checked'));
+		            $checkbox.triggerHandler('change');
+		            updateDisplay();
+		        });
+		        $checkbox.on('change', function () {
+		            updateDisplay();
+		        });
+
+		        // Actions
+		        function updateDisplay() {
+		            var isChecked = $checkbox.is(':checked');
+
+		            // Set the button's state
+		            $button.data('state', (isChecked) ? "on" : "off");
+
+		            // Update the button's color
+		            if (isChecked) {
+		                $button
+		                    .removeClass('btn-default')
+		                    .addClass('btn-' + color + ' active');
+		            }
+		            else {
+		                $button
+		                    .removeClass('btn-' + color + ' active')
+		                    .addClass('btn-default');
+		            }
+		        }
+
+		        // Initialization
+		        function init() {
+		            updateDisplay();
+		        }
+		        init();
+		    });
+		});
+	</script>
 </body>
 </html>

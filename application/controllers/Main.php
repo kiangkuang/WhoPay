@@ -82,9 +82,13 @@ class Main extends MY_Controller {
 			$this->item_model->insertBatch($itemArray);
 		}
 
-		var_dump($this->item_model->getByReceiptId($receiptId));
+		$receipt = $this->receipt_model->getById($receiptId);
+		$data['receiptCode'] = $receipt->code;
+		
+		$items = $this->item_model->getByReceiptId($receipt->id);
+		$data['items'] = $items;
 
-		$this->load->view('receipt');
+		$this->load->view('receipt', $data);
 	}
 
 	// result

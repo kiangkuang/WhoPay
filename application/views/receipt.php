@@ -18,19 +18,15 @@
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<h1>Receipt items</h1>
-					<h3> Access code: </h3>
+					<h3> Access code: <b><?= $receiptCode ?></b></h3>
 					<h4>Tap on items you want to pay for</h4>
-					<div class="row" style="margin-top:20px">
-					
-							<a href="#" class="btn btn-default">Not paying</a>
-						
-					</div>
-					<div class="row" style="margin-top:5px">
-	
-						<a href="#" class="btn btn-success">Paying</a>
-						
-					</div>
-					
+					<?php foreach ($items as $item): ?>
+						<div class="row" style="margin-top:20px">
+							<div class="col-md-6 col-md-offset-3">
+								<a href="#" class="btn btn-default btn-block"><span class="pull-left"><?= $item->name?></span>&nbsp;<span class="pull-right">$<?= $item->cost ?></span></a>
+							</div>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>

@@ -20,9 +20,16 @@
 					<h1>Receipt items</h1>
 					<h3> Access code: </h3>
 					<h4>Tap on items you want to pay for</h4>
-					<a href="#" class="btn btn-default">Not paying</a>
-					<a href="#" class="btn btn-success">Paying</a>
+					<div class="row" style="margin-top:20px">
 					
+							<a href="#" class="btn btn-default">Not paying</a>
+						
+					</div>
+					<div class="row" style="margin-top:5px">
+	
+						<a href="#" class="btn btn-success">Paying</a>
+						
+					</div>
 					
 				</div>
 			</div>

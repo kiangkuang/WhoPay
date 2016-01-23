@@ -7278,3 +7278,10 @@ body[data-slide='push'] {
   background-color: #476c73; }
 
 /*# sourceMappingURL=paper.css.map */
+
+div label input {
+   margin-right:100px;
+}
+body {
+    font-family:sans-serif;
+}

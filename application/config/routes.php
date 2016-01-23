@@ -55,5 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['(?i)create'] = 'main/create';
 $route['(?i)ocr'] = 'main/ocr';
+$route['(?i)join'] = 'main/join';
 $route['(?i)receipt'] = 'main/receipt';
 $route['(?i)result'] = 'main/result';

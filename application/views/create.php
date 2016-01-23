@@ -42,13 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="checkbox">
 									<label>
 										<input type="checkbox"> Service Charge 
-										<input type="text" class="form-inline" name="servicecharge" value="10%" style="width:30%">
+										<input type="text" class="form-inline" name="servicecharge" value="10" style="width:10%; text-align:center"><span> %</span>
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
 										<input type="checkbox"> Tax 
-										<input type="text" class="form-inline" name="tax" value="7%" style="width:40%">
+										<input type="text" class="form-inline" name="tax" value="7" style="width:10%; text-align:center"><span> %</span>
 									</label>
 								</div>
 							</div>

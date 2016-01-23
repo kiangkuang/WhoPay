@@ -6,11 +6,12 @@
 	<title>WhoPay</title>
 	<meta name="description" content="A Simple, Elegant &amp; Flat Bootstrap Theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/assets/dist/css/paper.min.css">
+	<link rel="stylesheet" href="/assets/dist/css/paper.css">
 	<link rel="stylesheet" href="/assets/assets/css/style.css">
 </head>
 
 <body>
+
 
 	<!-- Main menu -->
 	<div class="container">
@@ -20,23 +21,21 @@
 					<h1>Receipt items</h1>
 					<h3> Access code: </h3>
 					<h4>Tap on items you want to pay for</h4>
-					<div class="row" style="margin-top:20px">
-					
-							<a href="#" class="btn btn-default">Not paying</a>
-						
-					</div>
-					<div class="row" style="margin-top:5px">
-	
-						<a href="#" class="btn btn-success">Paying</a>
-						
+					<hr>
+
+					<div id="ck-button">
+						<label>
+							<input type="checkbox" value="1"><span>Item</span>
+						</label>
 					</div>
 					
 				</div>
+				<hr>
 			</div>
 		</div>
 	</div>
-	<br><br>
 
+	<br><br>
 	<!-- Footer -->
 	<div class="container">
 		<div class="row">

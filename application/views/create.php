@@ -16,18 +16,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
+				<div class="text-center">
+					<h1>WhoPay</h1>
+					<hr>
 				<form action="/index.php/main/receipt" method="post" class="form-horizontal">
 					<fieldset>
 						<!-- Name Field -->
 						<div class ="form-group">
-							<label for="name">Name</label>
 							<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
 						</div>
 
 						<!-- Item Field -->
 						<div class="form-group">
-							<div id="itemlist">
-								<label>Items:</label><br>
+							<div id="itemlist" style="margin-top: 0px;">
 								<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
 							</div>
 							<br>
@@ -54,14 +55,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						<!-- Submit and Cancel Buttons -->
 						<div class="form-group">
-							<div class="col-lg-10 col-lg-offset-2">
+			
 								<a href="/" class="btn btn-default">Cancel</a>
 								<button type="submit" class="btn btn-primary" value="Submt">Submit</button>
-							</div>
+							
 						</div>
 					
 					</fieldset>
 				</form>
+				<hr>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1 text-center">
+				<span>Released under MIT License</span> | 
+				<span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
+				<span>Made by <a href="https://github.com/sudharti">sudharti</a></span>
 			</div>
 		</div>
 	</div>

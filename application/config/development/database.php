@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '$_SERVER['JAWSDB_URL']',
-	'username' => '$_SERVER['JAWSDB_USER']',
-	'password' => '$_SERVER['JAWSDB_PW']',
-	'database' => '$_SERVER['JAWSDB_DB']',
+	'hostname' => $_SERVER['JAWSDB_URL'],
+	'username' => $_SERVER['JAWSDB_USER'],
+	'password' => $_SERVER['JAWSDB_PW'],
+	'database' => $_SERVER['JAWSDB_DB'],
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

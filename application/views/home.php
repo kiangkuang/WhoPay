@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Main menu -->
 	<div class="container">
 		<div class="row" style="margin-top: 50px;">
-			<div class="col-lg-10 col-lg-offset-1">
+			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>

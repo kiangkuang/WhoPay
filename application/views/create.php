@@ -29,24 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 
 							<!-- Item Field -->
-							<div class="form-inline">
 								<div id="itemlist" style="margin-top: 0px;">
-
-									<!-- <label>Items:</label><br> -->
-
-									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name">
-									
-									<div class="input-group">
-									<span class="input-group-addon">$</span>
-										<input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
-									</div>
-
+									<p><input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$</span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price"><label><a href="#" type="button" class="close remitem">x</a></label></p>
 								</div>
-								<br>
-								<!-- Button to add Items -->
-								<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
 
-							</div>
+							<!-- Button to add Items -->
+							<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
 
 							<!-- Tax and Service Charge -->
 							<p class="help-block">Check if the prices you entered does not include Tax and/or Service Charge.</p>

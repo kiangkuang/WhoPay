@@ -67,15 +67,15 @@
 
 .itemname {
 	display: inline-block;
-
-	width:79%;
+	width:74%;
 }
 
 .itemcost {
 	display:inline-block;
-	width:30% !important;
+	width:20%;
 }
 
+<<<<<<< HEAD
 .nav-tabs > li, .nav-pills > li {
     float:none;
     display:inline-block;
@@ -87,3 +87,12 @@
     text-align:center;
     margin-bottom: 20px;
 }
+=======
+
+.dollarsign {
+	background-color: gray;
+	display:inline-block;
+	margin-left: 5px;
+	padding : 7px 5px 6px 1px;	
+}
+>>>>>>> cbf13e677be3c36621dfd68c63761d5be6cf248c

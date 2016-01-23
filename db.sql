@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `whopay_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `whopay_db`;
--- MySQL dump 10.13  Distrib 5.6.23, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: whopay_db
 -- ------------------------------------------------------
--- Server version	5.6.17
+-- Server version	5.7.9
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -78,6 +76,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `receipt_id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
+  `is_ready` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -88,7 +87,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,1,'Oswell'),(2,1,'Kk'),(3,1,'yip'),(4,1,'Victor');
+INSERT INTO `user` VALUES (1,1,'Oswell',0),(2,1,'Kk',0),(3,1,'yip',0),(4,1,'Victor',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-23 16:38:12
+-- Dump completed on 2016-01-24  2:02:21

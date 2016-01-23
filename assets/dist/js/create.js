@@ -4,9 +4,11 @@ $(function(){
 	
 	// Adding new items
 	$('#additem').click(function(){
-		$('<p><input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$ </span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price"><label><a href="#" type="button" class="close remitem">x</a></label></p>').appendTo(itemlist);
+		$('.remitem').unbind();
+		$('<p><input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$</span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price"><label><a href="#" type="button" class="close remitem">x</a></label></p>').appendTo(itemlist);
 		count++;
 		console.log(count);
+
 		removeItem();
 		return false;
 	});

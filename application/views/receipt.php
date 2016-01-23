@@ -105,6 +105,8 @@
 		});
 	</script>
 	<script>
+		var readied = 0;
+		var total = 0;
 		// Attach a submit handler to the form
 		$( "form" ).submit(function( event ) {
 		 
@@ -133,6 +135,10 @@
 				for (var i = 0; i <buttonArray.length; i++) {
 				  	$(buttonArray[i]).addClass('disabled');
 				}
+				readied++;
+				if (readied == total) {
+				  	$('#submit').html('Submit').removeClass('disabled');
+				}
 			} else if ($('#ready').html() == 'Unready') {
 			  	$('#ready').html('Ready');
 			  	$('form').attr('action', '/index.php/main/ready');
@@ -140,9 +146,27 @@
 				for (var i = 0; i <buttonArray.length; i++) {
 				  	$(buttonArray[i]).removeClass('disabled');
 				}
+				readied--;
+				$('#submit').html(readied + '/' + total + ' Readied').addClass('disabled');
 			}
 		  });
 		});
+
+		if(typeof(EventSource) !== "undefined") {
+		    var source = new EventSource("/index.php/main/status");
+		    source.onmessage = function(event) {
+		        var data = JSON.parse(event.data);
+		        readied = data.readied;
+		        total = data.total;
+		        if (readied != total) {
+				  	$('#submit').html(data.readied + '/' + data.total + ' Readied').addClass('disabled');
+				} else {
+				  	$('#submit').html('Submit').removeClass('disabled');
+				}
+		    };
+		} else {
+		    console.log(event.data);
+		}
 	</script>
 </body>
 </html>

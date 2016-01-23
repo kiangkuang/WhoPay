@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-				<form action="/index.php/main/receipt" method="post" class="form-horizontal">
+				<form action="/index.php/main/receipt" method="post">
 					<fieldset>
 						<!-- Name Field -->
 						<div class ="form-group">

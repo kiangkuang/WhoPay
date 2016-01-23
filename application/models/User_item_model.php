@@ -9,6 +9,12 @@ class User_item_model extends MY_Model {
         $this->db_name = 'user_item';
     }
 
+    public function deleteByUserId($user_id)
+    {
+        $this->db->where('user_id', $user_id);
+        return $this->db->delete($this->db_name);
+    }
+
     public function get_raw_result($receipt_id) 
     {
     	$this->db->select('`item`.`id`, `item`.`name`, `item`.`cost`, `user`.`id` AS `userId`, `user`.`name` AS `userName`');

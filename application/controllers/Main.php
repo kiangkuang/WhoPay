@@ -102,6 +102,13 @@ class Main extends MY_Controller {
 			}
 			$this->user_item_model->insertBatch($data);
 		}
+		$this->user_model->update(['id' => $this->session->userId, 'is_ready' => 1]);
+	}
+
+	public function unready()
+	{
+		$this->user_model->update(['id' => $this->session->userId, 'is_ready' => 0]);
+		$this->user_item_model->deleteByUserId($this->session->userId);
 	}
 
 	// result

@@ -26,8 +26,8 @@
 						<input type="hidden" name="userId" value="<?= $userId ?>">
 						<?php foreach ($items as $item): ?>
 						    <span class="button-checkbox">
-						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name ?></span><span class="pull-right">$<?= $item->cost ?></span></button>
 						        <input type="checkbox" class="hidden" name="itemId" value="<?= $item->id ?>"/>
+						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name ?></span><span class="pull-right">$<?= $item->cost ?></span></button>
 						    </span>
 						<?php endforeach; ?>
 						<button id="ready" type="submit" class="btn btn-default">Ready</button>
@@ -115,6 +115,7 @@
 		  var $form = $( this );
 		  var userId = $form.find( "input[name='userId']" ).val();
 		  var checked = $("input:checked");
+		  var buttonArray = $("input + button");
 		  var items = [];
 		  for (var i = 0; i <checked.length; i++) {
 		  	items[i] = $(checked[i]).val();
@@ -125,8 +126,21 @@
 		  var posting = $.post( url, { userId: userId, items: items } );
 		 
 		  posting.done(function( data ) {
-		  	$('#ready').addClass('disabled');
-		  	$('#submit').removeClass('disabled');
+		  	if ($('#ready').html() == 'Ready') {
+			  	$('#ready').html('Unready');
+			  	$('form').attr('action', '/index.php/main/unready');
+
+				for (var i = 0; i <buttonArray.length; i++) {
+				  	$(buttonArray[i]).addClass('disabled');
+				}
+			} else if ($('#ready').html() == 'Unready') {
+			  	$('#ready').html('Ready');
+			  	$('form').attr('action', '/index.php/main/ready');
+
+				for (var i = 0; i <buttonArray.length; i++) {
+				  	$(buttonArray[i]).removeClass('disabled');
+				}
+			}
 		  });
 		});
 	</script>

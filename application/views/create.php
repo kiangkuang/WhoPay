@@ -37,18 +37,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<!-- Tax and Service Charge -->
 					<p class="help-block">Check if the prices you entered does not include Tax and/or Service Charge.</p>
-					<div class="form-group">
+					<div class="form-group form-inline">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox">Include Service Charge 
-								<input type="number" class="form-control" name="servicecharge" value="10">
+								<input type="checkbox">Service Charge 
+								<input type="text" class="form-control" name="servicecharge" value="10%" style="width:30%">
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox">Include Tax 
-								<input type="number" class="form-control" name="tax" value="7">
+								<input type="checkbox">Tax 
+								<input type="text" class="form-control" name="tax" value="7%" style="width:40%">
 							</label>
+						</div>
 					</div>
 
 					<!-- Button to submit -->

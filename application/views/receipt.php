@@ -27,7 +27,7 @@
 						<?php foreach ($items as $item): ?>
 						    <span class="button-checkbox">
 						        <input type="checkbox" class="hidden" name="itemId" value="<?= $item->id ?>"/>
-						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name ?></span><span class="pull-right">$<?= $item->cost ?></span></button>
+						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name ?></span><span class="pull-right">$<?= number_format(round($item->cost, 2, PHP_ROUND_HALF_UP), 2, '.', '') ?></span></button>
 						    </span>
 						<?php endforeach; ?>
 						<button id="ready" type="submit" class="btn btn-default">Ready</button>

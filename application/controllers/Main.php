@@ -146,14 +146,14 @@ class Main extends MY_Controller {
 
 				//Update all costs person needs to pay
 				for ($j = 0; $j < $sameItemCount; $j++) {
-					$itemTable[$currentItemId][$j + 1][2] /= $sameItemCount;
+					$itemTable[$currentItemId][$j + 2][2] /= $sameItemCount;
 				}
 
 				//Associate the itemId with itemName
 				$currentItemId = $results_row->id;
 
 				//Put a new entry under the new name
-				$newEntry = array($results_row->name, array($results_row->userId, $results_row->userName, $results_row->cost));
+				$newEntry = array($results_row->name, $results_row->cost, array($results_row->userId, $results_row->userName, $results_row->cost));
 				$itemTable[$currentItemId] = $newEntry;
 
 				$sameItemCount = 0;
@@ -164,7 +164,7 @@ class Main extends MY_Controller {
 			if ($i == $totalItems - 1) {
 				$sameItemCount++;
 				for ($j = 0; $j < $sameItemCount; $j++) {
-					$itemTable[$currentItemId][$j + 1][2] /= $sameItemCount;
+					$itemTable[$currentItemId][$j + 2][2] /= $sameItemCount;
 				}
 			}
 
@@ -182,7 +182,7 @@ class Main extends MY_Controller {
 		foreach ($itemTable as $payers) {
 			$totalPayers = count($payers);
 
-			for ($j = 1; $j < $totalPayers; $j++) {
+			for ($j = 2; $j < $totalPayers; $j++) {
 				$payer = $payers[$j];
 				if (isset($userTable[$payer[0]])) {
 					$userTable[$payer[0]][1] += $payer[2];

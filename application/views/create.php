@@ -14,19 +14,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<div class="container">
-		<form action="/main/createManual" method="post">
-			<div class ="form-group">
-				<label for="name">Name</label>
-				<input type="text" class="form-control" id="name" placeholder="Enter your name">
+		<div class="row" style="margin-top: 50px;">
+			<div class="col-md-6 col-md-offset-3">
+				<form action="/main/createManual" method="post">
+					<div class ="form-group">
+						<label for="name">Name</label>
+						<input type="text" class="form-control" id="name" placeholder="Enter your name">
+					</div>
+					<div class="form-group">
+						<label>Items:</label>
+						<input type="text" class="form-control" id="itemname" name="items[]" placeholder="Item name">
+						<input type="text" class="form-control" id="itemcost" name="itemcosts[]" placeholder="Price of Item"><br>
+						<button type="button" class="btn btn-default btn-sm" id="additem">Add item</button>
+					</div>
+					<input type="submit" class="btn btn-default" value="Submit">
+				</form>
 			</div>
-			<div class="form-group">
-				<label>Items:</label>
-				<input type="text" class="form-control" id="itemname" name="items[]" placeholder="Item name">
-				<input type="text" class="form-control" id="itemcost" name="itemcosts[]" placeholder="Price of Item"><br>
-				<button type="button" class="btn btn-default btn-sm" id="additem">Add item</button>
-			</div>
-			<input type="submit" class="btn btn-default" value="Submit">
-		</form>
+		</div>
 	</div>
 	<script type="text/javascript" src="/assets/dist/js/vendor/jquery.min.js"></script>
   <script type="text/javascript" src="/assets/dist/js/paper.min.js"></script>

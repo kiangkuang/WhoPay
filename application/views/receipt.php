@@ -19,16 +19,16 @@
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<h1>Receipt items</h1>
-					<h3> Access code: </h3>
+					<h3> Access code: <b><?= $receiptCode ?></b></h3>
 					<h4>Tap on items you want to pay for</h4>
 					<hr>
-
+					<?php foreach ($items as $item): ?>
 					<div id="ck-button">
 						<label>
-							<input type="checkbox" value="1"><span>Item</span>
+							<input type="checkbox" value="1"><span><?= $item->name?></span>&nbsp;<span class="pull-right">$<?= $item->cost ?></span>
 						</label>
 					</div>
-					
+					<?php endforeach; ?>
 				</div>
 				<hr>
 			</div>

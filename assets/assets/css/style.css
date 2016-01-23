@@ -64,3 +64,13 @@
   border-top: 1px solid #ddd;
   padding: 30px;
 }
+
+.itemname {
+	display: inline-block;
+	width:80%;
+}
+
+.itemcost {
+	display:inline-block;
+	width:20%;
+}

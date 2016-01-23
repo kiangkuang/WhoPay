@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
-				<form action="index.php/main/receipt" method="post" class="form-horizontal">
+				<form action="/index.php/main/receipt" method="post" class="form-horizontal">
 					<fieldset>
 						<!-- Name Field -->
 						<div class ="form-group">

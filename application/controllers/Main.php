@@ -111,6 +111,21 @@ class Main extends MY_Controller {
 		$this->user_item_model->deleteByUserId($this->session->userId);
 	}
 
+	public function status()
+	{
+		$users = $this->user_model->getByReceiptId($this->session->receiptId);
+		$count = 0;
+		foreach ($users as $user) {
+			if ($user->is_ready) {
+				$count++;
+			}
+		}
+		$output = json_encode(['readied' => $count, 'total' => count($users)]);
+	    $this->output->set_content_type('text/event-stream')->set_output("data: ".$output."\n\n");
+	    $this->output->set_header('Cache-Control: no-cache');
+	    flush();
+	}
+
 	// result
 	public function result($receiptCode = null)
 	{

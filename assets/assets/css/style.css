@@ -67,11 +67,18 @@
 
 .itemname {
 	display: inline-block;
-
-	width:79%;
+	width:74%;
 }
 
 .itemcost {
 	display:inline-block;
-	width:30% !important;
+	width:20%;
+}
+
+
+.dollarsign {
+	background-color: gray;
+	display:inline-block;
+	margin-left: 5px;
+	padding : 7px 5px 6px 1px;	
 }

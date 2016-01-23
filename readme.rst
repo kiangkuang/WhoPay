@@ -10,8 +10,6 @@ Resources
 *********
 
 -  `CodeIgniter <https://codeigniter.com/docs>`_
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
 -  `MySQL <https://www.mysql.com/products/workbench/>`_
 -  `Bootswatch Paper <http://bootswatch.com/paper/>`_
 -  `XAMPP <https://www.apachefriends.org/index.html>`_

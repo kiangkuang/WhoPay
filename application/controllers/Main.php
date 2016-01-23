@@ -94,9 +94,13 @@ class Main extends MY_Controller {
 	// result
 	public function result()
 	{
-		$results = $this->user_item_model->get_raw_result($this->session->receiptId);
+		//$results = $this->user_item_model->get_raw_result($this->session->receiptId);
 
-		$data['itemTable'] = $this->orderByItem($results);
+		$results = $this->user_item_model->get_raw_result(1);
+
+		$itemTable = $this->orderByItem($results);
+
+		$data['itemTable'] = $itemTable;
 
 		$data['userTable'] = $this->orderByUser($itemTable);
 

@@ -67,7 +67,7 @@
 
 .itemname {
 	display: inline-block;
-	width:80%;
+	width:79%;
 }
 
 .itemcost {
@@ -76,5 +76,5 @@
 }
 
 .dollarsign {
-  padding-left: 10px;
+  padding-left: 5px;
 }

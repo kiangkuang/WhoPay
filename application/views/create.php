@@ -34,13 +34,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								
 								<!-- <label>Items:</label><br> -->
 								<p>
-									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$ </span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
+									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$ </span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price"><label><a href="#" type="button" class="close remitem">x</a></label>
 								</p>
 							</div>
-							<br>
-							<!-- Button to add Items -->
-							<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
 						</div>
+
+						<!-- Button to add Items -->
+						<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
 
 						<!-- Tax and Service Charge -->
 						<p class="help-block">Check if the prices you entered does not include Tax and/or Service Charge.</p>

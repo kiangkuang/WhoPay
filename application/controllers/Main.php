@@ -88,6 +88,8 @@ class Main extends MY_Controller {
 		$items = $this->item_model->getByReceiptId($receipt->id);
 		$data['items'] = $items;
 
+		$data['userId'] = $userId;
+
 		$this->load->view('receipt', $data);
 	}
 
@@ -96,5 +98,16 @@ class Main extends MY_Controller {
 	{
 		var_dump($this->input->post());
 		$this->load->view('result');
+	}
+
+	public function ready()
+	{
+		$input = $this->input->post();
+		if ($input['items']){
+			foreach ($input['items'] as $item) {
+				$data[] = ['receipt_id'=>$this->session->receiptId, 'user_id' => $input['userId'], 'item_id' => $item];
+			}
+			$this->user_item_model->insertBatch($data);
+		}
 	}
 }

@@ -22,7 +22,7 @@
 					<h3> Access code: <b><?= $receiptCode ?></b></h3>
 					<h4>Tap on items you want to pay for</h4>
 					<hr>
-					<form action="/main/result" method="post">
+					<form action="/index.php/main/result" method="post">
 						<?php foreach ($items as $item): ?>
 						    <span class="button-checkbox">
 						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name?></span><span class="pull-right">$<?= $item->cost ?></span></button>
@@ -30,7 +30,9 @@
 						    </span>
 						<?php endforeach; ?>
 						
-						<button type="submit" class="btn btn-default" value="Submit">Submit</button>
+						<button type="default" class="btn btn-default" value="Ready">Ready</button>
+						<!-- ajax shit here -->
+						<button type="submit" class="btn btn-primary disabled" value="Submit">Submit</button>
 					</form>
 				</div>
 				<hr>

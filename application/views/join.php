@@ -29,8 +29,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="form-group">
 							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name">
 						</div>
-						<input type="submit" class="btn btn-default" value="Join">
 						<a href="/" class="btn btn-default">Back</a>
+						<input type="submit" class="btn btn-primary" value="Join">
 					</form>
 					<hr>
 				</div>

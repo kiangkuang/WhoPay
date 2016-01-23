@@ -45,6 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<br>
 								<!-- Button to add Items -->
 								<button type="button" class="btn btn-info btn-sm" id="additem">Add item</button>
+
 							</div>
 
 							<!-- Tax and Service Charge -->

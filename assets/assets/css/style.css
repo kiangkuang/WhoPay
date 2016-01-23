@@ -67,14 +67,11 @@
 
 .itemname {
 	display: inline-block;
-	width:65% !important;
+
+	width:79%;
 }
 
 .itemcost {
 	display:inline-block;
 	width:30% !important;
-}
-
-.input-group-addon {
-  width:5% !important;
 }

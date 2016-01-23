@@ -88,17 +88,44 @@ class Main extends MY_Controller {
 		$items = $this->item_model->getByReceiptId($receipt->id);
 		$data['items'] = $items;
 
+		$data['userId'] = $userId;
+
 		$this->load->view('receipt', $data);
 	}
 
-	// result
-	public function result()
+	public function ready()
 	{
-		$results = $this->user_item_model->get_raw_result($this->session->receiptId);
+		$input = $this->input->post();
+		if ($input['items']){
+			foreach ($input['items'] as $item) {
+				$data[] = ['receipt_id'=>$this->session->receiptId, 'user_id' => $input['userId'], 'item_id' => $item];
+			}
+			$this->user_item_model->insertBatch($data);
+		}
+		$this->user_model->update(['id' => $this->session->userId, 'is_ready' => 1]);
+	}
 
-		$data['itemTable'] = $this->orderByItem($results);
+	public function unready()
+	{
+		$this->user_model->update(['id' => $this->session->userId, 'is_ready' => 0]);
+		$this->user_item_model->deleteByUserId($this->session->userId);
+	}
 
-		$data['userTable'] = $this->orderByUser($itemTable);
+	// result
+	public function result($receiptCode = null)
+	{
+		if ($receiptCode === null) {
+			$receiptId = $this->session->receiptId;
+		} else {
+			$receiptId = $this->receipt_model->getByCode($receiptCode)->id;
+		}
+		$results = $this->user_item_model->get_raw_result($receiptId);
+
+		$itemTable = $this->orderByItem($results);
+		$userTable = $this->orderByUser($itemTable);
+
+		$data['itemTable'] = $itemTable;
+		$data['userTable'] = $userTable;
 
 		$this->load->view('result', $data);
 	}
@@ -119,14 +146,14 @@ class Main extends MY_Controller {
 
 				//Update all costs person needs to pay
 				for ($j = 0; $j < $sameItemCount; $j++) {
-					$itemTable[$currentItemId][$j + 1][2] /= $sameItemCount;
+					$itemTable[$currentItemId][$j + 2][2] /= $sameItemCount;
 				}
 
 				//Associate the itemId with itemName
 				$currentItemId = $results_row->id;
 
 				//Put a new entry under the new name
-				$newEntry = array($results_row->name, array($results_row->userId, $results_row->userName, $results_row->cost));
+				$newEntry = array($results_row->name, $results_row->cost, array($results_row->userId, $results_row->userName, $results_row->cost));
 				$itemTable[$currentItemId] = $newEntry;
 
 				$sameItemCount = 0;
@@ -137,7 +164,7 @@ class Main extends MY_Controller {
 			if ($i == $totalItems - 1) {
 				$sameItemCount++;
 				for ($j = 0; $j < $sameItemCount; $j++) {
-					$itemTable[$currentItemId][$j + 1][2] /= $sameItemCount;
+					$itemTable[$currentItemId][$j + 2][2] /= $sameItemCount;
 				}
 			}
 
@@ -155,7 +182,7 @@ class Main extends MY_Controller {
 		foreach ($itemTable as $payers) {
 			$totalPayers = count($payers);
 
-			for ($j = 1; $j < $totalPayers; $j++) {
+			for ($j = 2; $j < $totalPayers; $j++) {
 				$payer = $payers[$j];
 				if (isset($userTable[$payer[0]])) {
 					$userTable[$payer[0]][1] += $payer[2];

@@ -30,8 +30,8 @@
 						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name ?></span><span class="pull-right">$<?= number_format(round($item->cost, 2, PHP_ROUND_HALF_UP), 2, '.', '') ?></span></button>
 						    </span>
 						<?php endforeach; ?>
-						<button id="ready" type="submit" class="btn btn-default">Ready</button>
-						<a href="/index.php/main/result" id="submit" class="btn btn-primary disabled">Submit</a>
+						<button id="ready" type="submit" class="btn btn-primary">Ready</button>
+						<a href="/index.php/main/result" id="submit" class="btn btn-default disabled">Submit</a>
 					</form>
 				</div>
 				<hr>
@@ -137,8 +137,11 @@
 				}
 				readied++;
 				if (readied == total) {
+					console.log('ll');
 				  	$('#submit').html('Submit').removeClass('disabled');
 				}
+				$('#submit').removeClass('btn-default').addClass('btn-primary');
+				$('#ready').removeClass('btn-primary').addClass('btn-default');
 			} else if ($('#ready').html() == 'Unready') {
 			  	$('#ready').html('Ready');
 			  	$('form').attr('action', '/index.php/main/ready');
@@ -147,7 +150,9 @@
 				  	$(buttonArray[i]).removeClass('disabled');
 				}
 				readied--;
-				$('#submit').html(readied + '/' + total + ' Readied').addClass('disabled');
+				console.log('22');
+				$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + readied + '/' + total + ' Readied').addClass('disabled').removeClass('btn-primary').addClass('btn-default');
+				$('#ready').removeClass('btn-default').addClass('btn-primary');
 			}
 		  });
 		});
@@ -159,7 +164,7 @@
 		        readied = data.readied;
 		        total = data.total;
 		        if (readied != total) {
-				  	$('#submit').html(data.readied + '/' + data.total + ' Readied').addClass('disabled');
+				  	$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + data.readied + '/' + data.total + ' Readied').addClass('disabled');
 				} else {
 				  	$('#submit').html('Submit').removeClass('disabled');
 				}

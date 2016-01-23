@@ -23,13 +23,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<fieldset>
 						<!-- Name Field -->
 						<div class ="form-group">
+							<!-- <label for="name">Name</label> -->
 							<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+							<br>
 						</div>
 
 						<!-- Item Field -->
 						<div class="form-group">
 							<div id="itemlist" style="margin-top: 0px;">
-								<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
+								
+								<!-- <label>Items:</label><br> -->
+								<p>
+									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
+								</p>
 							</div>
 							<br>
 							<!-- Button to add Items -->

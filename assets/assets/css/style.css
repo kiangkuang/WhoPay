@@ -73,4 +73,5 @@
 .itemcost {
 	display:inline-block;
 	width:20%;
+	border-left: none;
 }

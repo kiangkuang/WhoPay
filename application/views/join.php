@@ -9,8 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>WhoPay</title>
 	<meta name="description" content="A Simple, Elegant &amp; Flat Bootstrap Theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../../assets/dist/css/paper.min.css">
-	<link rel="stylesheet" href="../../assets/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/dist/css/paper.min.css">
+	<link rel="stylesheet" href="/assets/assets/css/style.css">
 </head>
 
 <body>
@@ -22,14 +22,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-					<div class="form-group">
-						<input class="form-control" id="focusedInput" type="text" placeholder="Enter receipt code">
-					</div>
-					<div class="form-group">
-						<input class="form-control" id="focusedInput" type="text" placeholder="Enter your name">
-					</div>
-					<a href="#" class="btn btn-default">Join</a>
-					<a href="#" class="btn btn-default">Back</a>
+					<form method="post" action="/index.php/main/receipt">
+						<div class="form-group">
+							<input class="form-control" id="focusedInput" type="text" name="receiptCode" placeholder="Enter receipt code">
+						</div>
+						<div class="form-group">
+							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name">
+						</div>
+						<input type="submit" class="btn btn-default" value="Join">
+					</form>
+					<a href="/" class="btn btn-default">Back</a>
 					<hr>
 				</div>
 			</div>

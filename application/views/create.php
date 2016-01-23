@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-				<form action="/index.php/main/receipt" method="post" class="form-horizontal">
+				<form action="/index.php/main/receipt" method="post">
 					<fieldset>
 						<!-- Name Field -->
 						<div class ="form-group">
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								
 								<!-- <label>Items:</label><br> -->
 								<p>
-									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
+									<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$ </span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
 								</p>
 							</div>
 							<br>
@@ -78,10 +78,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Footer -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1 text-center">
-				<span>Released under MIT License</span> | 
+			<div class="col-lg-10 col-lg-offset-1 text-center"> 
 				<span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
-				<span>Made by <a href="https://github.com/sudharti">sudharti</a></span>
+				<span>Github: <a href="https://github.com/yipjiajie/WhoPay">WhoPay</a></span>
 			</div>
 		</div>
 	</div>

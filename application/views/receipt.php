@@ -22,17 +22,16 @@
 					<h3> Access code: <b><?= $receiptCode ?></b></h3>
 					<h4>Tap on items you want to pay for</h4>
 					<hr>
-					<form action="/index.php/main/result" method="post">
+					<form action="/index.php/main/ready" method="post">
+						<input type="hidden" name="userId" value="<?= $userId ?>">
 						<?php foreach ($items as $item): ?>
 						    <span class="button-checkbox">
-						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name?></span><span class="pull-right">$<?= $item->cost ?></span></button>
-						        <input type="checkbox" class="hidden" name="<?= $item->id ?>" value="1"/>
+						        <button type="button" class="btn btn-block" data-color="success" style="margin-bottom:5px;"><span class="pull-left"><?= $item->name ?></span><span class="pull-right">$<?= $item->cost ?></span></button>
+						        <input type="checkbox" class="hidden" name="itemId" value="<?= $item->id ?>"/>
 						    </span>
 						<?php endforeach; ?>
-						
-						<button type="default" class="btn btn-default" value="Ready">Ready</button>
-						<!-- ajax shit here -->
-						<button type="submit" class="btn btn-primary disabled" value="Submit">Submit</button>
+						<button id="ready" type="submit" class="btn btn-default">Ready</button>
+						<a href="/index.php/main/result" id="submit" class="btn btn-primary disabled">Submit</a>
 					</form>
 				</div>
 				<hr>
@@ -44,10 +43,9 @@
 	<!-- Footer -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1 text-center">
-				<span>Released under MIT License</span> | 
+			<div class="col-lg-10 col-lg-offset-1 text-center"> 
 				<span>Built on <a href="http://getbootstrap.com/">Bootstrap</a></span> |
-				<span>Made by <a href="https://github.com/sudharti">sudharti</a></span>
+				<span>Github: <a href="https://github.com/yipjiajie/WhoPay">WhoPay</a></span>
 			</div>
 		</div>
 	</div>
@@ -104,6 +102,32 @@
 		        }
 		        init();
 		    });
+		});
+	</script>
+	<script>
+		// Attach a submit handler to the form
+		$( "form" ).submit(function( event ) {
+		 
+		  // Stop form from submitting normally
+		  event.preventDefault();
+		 
+		  // Get some values from elements on the page:
+		  var $form = $( this );
+		  var userId = $form.find( "input[name='userId']" ).val();
+		  var checked = $("input:checked");
+		  var items = [];
+		  for (var i = 0; i <checked.length; i++) {
+		  	items[i] = $(checked[i]).val();
+		  };
+		  var url = $form.attr( "action" );
+		 
+		  // Send the data using post
+		  var posting = $.post( url, { userId: userId, items: items } );
+		 
+		  posting.done(function( data ) {
+		  	$('#ready').addClass('disabled');
+		  	$('#submit').removeClass('disabled');
+		  });
 		});
 	</script>
 </body>

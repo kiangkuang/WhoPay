@@ -20,14 +20,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<fieldset>
 						<!-- Name Field -->
 						<div class ="form-group">
-							<label for="name">Name</label>
+							<!-- <label for="name">Name</label> -->
 							<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
 						</div>
 
 						<!-- Item Field -->
 						<div class="form-group">
 							<div id="itemlist">
-								<label>Items:</label><br>
+								<!-- <label>Items:</label><br> -->
 								<input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price of Item">
 							</div>
 							<br>

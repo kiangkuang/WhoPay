@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-					<video id="video" width="640" height="480" autoplay></video>
+					<video id="video" width="555" height="480" autoplay></video>
 					<button type="button" class="btn btn-default" id="snap">Snap Photo of Receipt</button>
 					<canvas id="canvas" width="640" height="480"></canvas>
 					<hr>
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
 	</script>
 	<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
-	<script>
+	<script> // Script for capturing video as an image and draw onto canvas
 	// Put event listeners into place
 	window.addEventListener("DOMContentLoaded", function() {
 	// Grab elements, create settings, etc.
@@ -80,10 +80,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	document.getElementById("snap").addEventListener("click", function() {
 		context.drawImage(video, 0, 0, 640, 480);
+		var image = new Image();
+		image.src = canvas.toDataURL("image/png");
+		console.log(image);
+		console.log(image.src);
+
 	});
 }, false);
 
+//Prepare form data
+var formData = new FormData();
+formData.append("file", "image");
+formData.append("url", "image.src");
+formData.append("language", "eng");
+formData.append("apikey", "Your-API-Key-Here");
+
+formData.append("isOverlayRequired", false);
+
+//Send OCR Parsing request asynchronously
+jQuery.ajax({
+	url: 'https://api.ocr.space/parse/image',
+	data: formData,
+	dataType: 'json',
+	cache: false,
+	contentType: false,
+	processData: false,
+	type: 'json',
+	success: function (ocrParsedResult) {
+//Get the parsed results, exit code and error message and details
+var parsedResults = ocrParsedResult["ParsedResults"];
+var ocrExitCode = ocrParsedResult["OCRExitCode"];
+var isErroredOnProcessing = ocrParsedResult["IsErroredOnProcessing"];
+var errorMessage = ocrParsedResult["ErrorMessage"];
+var errorDetails = ocrParsedResult["ErrorDetails"];
+var processingTimeInMilliseconds = ocrParsedResult["ProcessingTimeInMilliseconds"];
+}});
+
 
 </script>
+
+
 </body>
 </html>

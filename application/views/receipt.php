@@ -86,6 +86,7 @@
 
 		            // Update the button's color
 		            if (isChecked) {
+	                    $('#ready').tooltip('destroy');
 		                $button
 		                    .removeClass('btn-default')
 		                    .addClass('btn-' + color + ' active');
@@ -110,70 +111,77 @@
 		var total = 0;
 		// Attach a submit handler to the form
 		$( "form" ).submit(function( event ) {
-		 
-		  // Stop form from submitting normally
-		  event.preventDefault();
-		 
-		  // Get some values from elements on the page:
-		  var $form = $( this );
-		  var userId = $form.find( "input[name='userId']" ).val();
-		  var checked = $("input:checked");
-		  var buttonArray = $("input + button");
-		  var items = [];
-		  for (var i = 0; i <checked.length; i++) {
-		  	items[i] = $(checked[i]).val();
-		  };
-		  var url = $form.attr( "action" );
-		 
-		  // Send the data using post
-		  var posting = $.post( url, { userId: userId, items: items } );
-		 
-		  posting.done(function( data ) {
-		  	if ($('#ready').html() == 'Ready') {
-			  	$('#ready').html('Unready');
-			  	$('form').attr('action', '/index.php/main/unready');
+			// Stop form from submitting normally
+			event.preventDefault();
 
-				for (var i = 0; i <buttonArray.length; i++) {
-				  	$(buttonArray[i]).addClass('disabled');
-				}
-				readied++;
-				if (readied == total) {
-				  	$('#submit').html('Submit').removeClass('disabled');
-				}
-				$('#submit').removeClass('btn-default').addClass('btn-primary');
-				$('#ready').removeClass('btn-primary').addClass('btn-default');
-			} else if ($('#ready').html() == 'Unready') {
-			  	$('#ready').html('Ready');
-			  	$('form').attr('action', '/index.php/main/ready');
+			// Get some values from elements on the page:
+			var $form = $( this );
+			var userId = $form.find( "input[name='userId']" ).val();
+			var checked = $("input:checked");
+			var buttonArray = $("input + button");
+			var items = [];
+			for (var i = 0; i <checked.length; i++) {
+				items[i] = $(checked[i]).val();
+			};
+			var url = $form.attr( "action" );
 
-				for (var i = 0; i <buttonArray.length; i++) {
-				  	$(buttonArray[i]).removeClass('disabled');
-				}
-				readied--;
-				$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + readied + '/' + total + ' Readied').addClass('disabled').removeClass('btn-primary').addClass('btn-default');
-				$('#ready').removeClass('btn-default').addClass('btn-primary');
+			if (checked.length == 0){
+				$('#ready').tooltip({
+					placement:'top',
+					title:'Please select at least one item!'
+				}).tooltip('show');
+				return false;
 			}
-		  });
+			// Send the data using post
+			var posting = $.post( url, { userId: userId, items: items } );
+
+			posting.done(function( data ) {
+				
+				if ($('#ready').html() == 'Ready') {
+					$('#ready').html('Unready');
+					$('form').attr('action', '/index.php/main/unready');
+
+					for (var i = 0; i <buttonArray.length; i++) {
+					  	$(buttonArray[i]).addClass('disabled');
+					}
+					readied++;
+					if (readied == total) {
+						$('#submit').html('Submit').removeClass('disabled');
+					}
+					$('#submit').removeClass('btn-default').addClass('btn-primary');
+					$('#ready').removeClass('btn-primary').addClass('btn-default');
+				} else if ($('#ready').html() == 'Unready') {
+					$('#ready').html('Ready');
+					$('form').attr('action', '/index.php/main/ready');
+
+					for (var i = 0; i <buttonArray.length; i++) {
+						$(buttonArray[i]).removeClass('disabled');
+					}
+					readied--;
+					$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + readied + '/' + total + ' Readied').addClass('disabled').removeClass('btn-primary').addClass('btn-default');
+					$('#ready').removeClass('btn-default').addClass('btn-primary');
+				}
+			});
 		});
 
 		if(typeof(EventSource) !== "undefined") {
-		    var source = new EventSource("/index.php/main/status");
-		    source.onmessage = function(event) {
-		        var data = JSON.parse(event.data);
-		        readied = data.readied;
-		        total = data.total;
-		        submitted = data.submitted;
-		        if (readied != total) {
-				  	$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + data.readied + '/' + data.total + ' Readied').addClass('disabled');
+				var source = new EventSource("/index.php/main/status");
+				source.onmessage = function(event) {
+				var data = JSON.parse(event.data);
+				readied = data.readied;
+				total = data.total;
+				submitted = data.submitted;
+				if (readied != total) {
+					$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + data.readied + '/' + data.total + ' Readied').addClass('disabled');
 				} else {
-				  	$('#submit').html('Submit').removeClass('disabled');
+					$('#submit').html('Submit').removeClass('disabled');
 				}
 				if (submitted == 1) {
 					window.location.href = $('#submit').attr('href');
 				}
-		    };
+			};
 		} else {
-		    console.log(event.data);
+			console.log(event.data);
 		}
 	</script>
 </body>

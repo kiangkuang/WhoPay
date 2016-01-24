@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<!-- Item Field -->
 										<div class="input-group form-group">
 											<div class="input-group-addon">$</div>
-												<input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
+												<input type="number" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
 											<a><span style="position:absolute;top:7px;right:-20px;" class="close remitem">&times;</span></a>
 										</div>
 									</div>
@@ -58,13 +58,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							  <label class="checkbox" style="display:inline-block !important;">
 							     <input type="checkbox" name="serviceCharge"> Service Charge
 							  </label>
-							  <input type="text" class="form-control" name="serviceChargeValue" value="10" placeholder="Other" style="width:2em;padding:4px;text-align:center;display:inline-block !important;"> %
+							  <input type="number" class="form-control" name="serviceChargeValue" value="10" style="width:2em;padding:4px;text-align:center;display:inline-block !important;"> %
 							</div>
 							<div class="form-inline" style="margin-bottom:20px;">
 							  <label class="checkbox" style="display:inline-block !important;">
 							     <input type="checkbox" name="tax"> Tax
 							  </label>
-							  <input type="text" class="form-control" name="taxValue" value="7" placeholder="Other" style="width:2em;padding:4px;text-align:center;display:inline-block !important;"> %
+							  <input type="number" class="form-control" name="taxValue" value="7" style="width:2em;padding:4px;text-align:center;display:inline-block !important;"> %
 							</div>
 
 							<!-- Submit and Cancel Buttons -->

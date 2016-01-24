@@ -48,6 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</form>
 					<a href="index.php/main/create" class="btn btn-default">Manual entry</a>
+					<br>
+					<img src="/assets/img/loading.gif" style="height:40px;" class="hidden" id="loading">
 				</div>
 				<div class="modal-footer" id="modalCloseButton">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -76,7 +78,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script>
 		document.getElementById("inputFile").onchange = function() {
 			document.getElementById("form").submit();
-			document.getElementById("inputFile").value=null;
+			document.getElementById("inputFile").value = null;
+			$('#loading').removeClass('hidden');
 		}
 	</script>
 </body>

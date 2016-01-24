@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#userChoice">New bill</button>
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#userChoice">New receipt</button>
 					<a href="index.php/main/join" class="btn btn-default">Join</a>
 					<hr>
 				</div>
@@ -37,11 +37,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title text-center" id="myModalLabel">Choose method of entering bill</h4>
+					<h4 class="modal-title text-center" id="myModalLabel">Setting Up</h4>
 				</div>
 				<div class="modal-body text-center">
-					<a href="index.php/main/ocr" class="btn btn-default">Take a photo of receipt</a>
-					<a href="index.php/main/create" class="btn btn-default">Manually</a>
+					<div class="fileUpload btn btn-default">
+						<span>Photo of receipt</span>
+						<form id="form" role="form" method="post" enctype="multipart/form-data" action="/index.php/main/ocr">
+							<input type="file" class="upload" id="inputFile" name="file" />
+						</div>
+					</form>
+					<a href="index.php/main/create" class="btn btn-default">Manual entry</a>
 				</div>
 				<div class="modal-footer" id="modalCloseButton">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -66,5 +71,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
 	</script>
 	<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<script>
+		document.getElementById("inputFile").onchange = function() {
+			document.getElementById("form").submit();
+			document.getElementById("inputFile").value=null;
+		}
+	</script>
 </body>
 </html>

@@ -27,7 +27,33 @@ class Main extends MY_Controller {
 	// ocr
 	public function ocr()
 	{
-		$this->load->view('ocr');
+
+		$config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             =  1000000;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('file'))
+		{
+            $error = array('error' => $this->upload->display_errors());
+
+            var_dump($error);
+
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+
+            
+        }
+
+		// $fileName = "./uploads/receipt.jpg";
+
+  //       $command = "curl --form \"file=@".$fileName."\" --form \"apikey=helloworld\" --form \"language=eng\" https://api.ocr.space/Parse/Image";
+		// $parsedData = (array) json_decode(shell_exec($command));
+
+		
 	}
 
 	//join

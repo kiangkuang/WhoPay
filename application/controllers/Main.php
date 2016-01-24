@@ -28,42 +28,46 @@ class Main extends MY_Controller {
 	public function ocr()
 	{
 
-		$config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             =  1000000;
+		try {
+			$config['upload_path']          = './uploads/';
+	        $config['allowed_types']        = 'gif|jpg|png';
+	        $config['max_size']             =  1000000;
 
-        $this->load->library('upload', $config);
+	        $this->load->library('upload', $config);
 
-        if ( ! $this->upload->do_upload('file'))
-		{
-            $error = array('error' => $this->upload->display_errors());
-        }
-        else
-        {
-            $upload = $this->upload->data();
-        }
+	        if ( ! $this->upload->do_upload('file'))
+			{
+	            $error = array('error' => $this->upload->display_errors());
+	        }
+	        else
+	        {
+	            $upload = $this->upload->data();
+	        }
 
-        $fileName = $upload['full_path'];
+	        $fileName = $upload['full_path'];
 
-  		$command = "curl --form \"file=@".$fileName."\" --form \"apikey=helloworld\" --form \"language=eng\" https://api.ocr.space/Parse/Image";
-		$parsedData = (array) json_decode(shell_exec($command));
+	  		$command = "curl --form \"file=@".$fileName."\" --form \"apikey=helloworld\" --form \"language=eng\" https://api.ocr.space/Parse/Image";
+			$parsedData = (array) json_decode(shell_exec($command));
 
-		$parsedString = $parsedData['ParsedResults'][0]->ParsedText;
-		$items = explode("\r\n", $parsedString);
-		
-		$displayItems = array();
-		
-		foreach($items as $item) {
-			if (!$this->isInBlackList($item)) {
-				array_push($displayItems, $item);
-			} else {
-				break;
+			$parsedString = $parsedData['ParsedResults'][0]->ParsedText;
+			$items = explode("\r\n", $parsedString);
+			
+			$displayItems = array();
+			
+			foreach($items as $item) {
+				if (!$this->isInBlackList($item)) {
+					array_push($displayItems, $item);
+				} else {
+					break;
+				}
 			}
+
+			$data['displayItems'] = $displayItems;
+
+			$this->load->view('create', $data);
+		} catch (Exception $e) {
+			$this->load->view('home');
 		}
-
-		$data['displayItems'] = $displayItems;
-
-		$this->load->view('create', $data);
 	}
 
 	//join

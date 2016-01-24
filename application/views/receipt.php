@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/assets/dist/css/paper.css">
 	<link rel="stylesheet" href="/assets/assets/css/style.css">
+	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

@@ -22,8 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-					<video id="video" width="555" height="480" autoplay></video>
+					<video id="video" width="555                                                                                                                                                                                                                                                                                                                                                                                                   " height="480" autoplay></video>
 					<button type="button" class="btn btn-default" id="snap">Snap Photo of Receipt</button>
+					<input type="file" accept="image/*;capture=camera">
 					<a href="/" class="btn btn-default">Cancel</a>
 					<canvas id="canvas" width="640" height="480"></canvas>
 					<hr>
@@ -51,6 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
 	<script> // Script for capturing video as an image and draw onto canvas
 	// Put event listeners into place
+
+
 	var image = new Image();
 
 	window.addEventListener("DOMContentLoaded", function() {

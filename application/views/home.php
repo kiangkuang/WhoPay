@@ -40,12 +40,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4 class="modal-title text-center" id="myModalLabel">Setting Up</h4>
 				</div>
 				<div class="modal-body text-center">
-				<form role="form" method="post" enctype="multipart/form-data" action="/index.php/main/ocr">
-						<div class="fileUpload btn btn-default">
-							<span>Photo of receipt</span>
+					<div class="fileUpload btn btn-default">
+						<span>Photo of receipt</span>
+						<form id="form" role="form" method="post" enctype="multipart/form-data" action="/index.php/main/ocr">
 							<input type="file" class="upload" id="inputFile" name="file" />
 						</div>
-
 					</form>
 					<a href="index.php/main/create" class="btn btn-default">Manual entry</a>
 				</div>
@@ -72,5 +71,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
 	</script>
 	<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<script>
+		document.getElementById("inputFile").onchange = function() {
+			document.getElementById("form").submit();
+			document.getElementById("inputFile").value=null;
+		}
+	</script>
 </body>
 </html>

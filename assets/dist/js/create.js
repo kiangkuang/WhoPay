@@ -1,7 +1,8 @@
 $(function(){
 	var itemlist = $('#itemlist');
 	var count = $('#itemlist .input-group-addon').size();
-	crossVisibility()
+	removeItem();
+	crossVisibility();
 	
 	// Adding new items
 	$('#additem').click(function(){

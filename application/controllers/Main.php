@@ -206,7 +206,8 @@ class Main extends MY_Controller {
 		$data['itemTable'] = $itemTable;
 		$data['userTable'] = $userTable;
 
-		$data['url'] = $_SERVER['SERVER_NAME'].'/'.uri_string();
+		$data['isMobile'] = $this->agent->is_mobile();
+		$data['url'] = $_SERVER['SERVER_NAME'].'/index.php/'.uri_string();
 
 		$this->load->view('result', $data);
 	}

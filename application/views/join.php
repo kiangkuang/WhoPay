@@ -25,10 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<hr>
 					<form method="post" action="/index.php/main/receipt">
 						<div class="form-group">
-							<input class="form-control" id="focusedInput" type="text" name="receiptCode" placeholder="Enter access code provided by host">
+							<input class="form-control" id="focusedInput" type="text" name="receiptCode" placeholder="Enter access code provided by host" required>
 						</div>
 						<div class="form-group">
-							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name">
+							<input class="form-control" id="focusedInput" type="text" name="name" placeholder="Enter your name" required>
 						</div>
 						<a href="/" class="btn btn-default">Back</a>
 						<input type="submit" class="btn btn-primary" value="Join">

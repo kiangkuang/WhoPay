@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<hr>
 					<video id="video" width="555" height="480" autoplay></video>
 					<button type="button" class="btn btn-default" id="snap">Snap Photo of Receipt</button>
+					<a href="/" class="btn btn-default">Cancel</a>
 					<canvas id="canvas" width="640" height="480"></canvas>
 					<hr>
 				</div>

@@ -26,7 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<input class="form-control" type="text" value="<?= $url ?>" readonly>
 					</div>
 					<div class="col-md-12" style="margin-bottom:20px;">
-						<a href="whatsapp://send?text=<?= $url ?>" data-action="share/whatsapp/share">Share via WhatsApp</a>
+						<?php if ($isMobile): ?>
+							<a href="whatsapp://send?text=<?= $url ?>" data-action="share/whatsapp/share">Share via WhatsApp</a>
+						<?php endif; ?>
 					</div>
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#billbyname" data-toggle="tab" aria-expanded="true">Split bill by names</a></li>

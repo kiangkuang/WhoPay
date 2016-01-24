@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<!-- Name Field -->
 							<div class="col-xs-12">
 								<div class="form-group">
-									<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+									<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
 								</div>
 							</div>
 
@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="col-xs-8">
 										<!-- Item Field -->
 										<div class="form-group" id="itemlist" style="margin-top: 0px;">
-											<input type="text" class="form-control itemname" name="items[]" placeholder="Item name" value="<?= $item ?>">
+											<input type="text" class="form-control itemname" name="items[]" placeholder="Item name" value="<?= $item ?>" required>
 										</div>
 									</div>
 
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<!-- Item Field -->
 										<div class="input-group form-group">
 											<div class="input-group-addon">$</div>
-												<input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
+												<input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price" required>
 											<a><span style="position:absolute;top:7px;right:-20px;" class="close remitem">&times;</span></a>
 										</div>
 									</div>
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="col-xs-8">
 										<!-- Item Field -->
 										<div class="form-group" id="itemlist" style="margin-top: 0px;">
-											<input type="text" class="form-control itemname" name="items[]" placeholder="Item name">
+											<input type="text" class="form-control itemname" name="items[]" placeholder="Item name" required>
 										</div>
 									</div>
 
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<!-- Item Field -->
 										<div class="input-group form-group">
 											<div class="input-group-addon">$</div>
-												<input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
+												<input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price" required>
 											<a><span style="position:absolute;top:7px;right:-20px;" class="close remitem">&times;</span></a>
 										</div>
 									</div>

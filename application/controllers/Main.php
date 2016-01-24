@@ -40,7 +40,7 @@ class Main extends MY_Controller {
         }
         else
         {
-            $data = array('upload_data' => $this->upload->data());
+            $upload = $this->upload->data();
         }
 
         $fileName = $upload['full_path'];

@@ -15,7 +15,11 @@ class Main extends MY_Controller {
 	// new or join button
 	public function index()
 	{
-		$this->load->view('home');
+		$data = [];
+		if ($this->session->error){
+            $data['error'] = $this->session->error;
+        }
+		$this->load->view('home', $data);
 	}
 
 	// manual create. submits name and items to createManual()
@@ -89,6 +93,7 @@ class Main extends MY_Controller {
 			if ($receipt !== false) {
 				$receiptId = $receipt->id;
 			} else {
+				$this->session->set_flashdata('error', 'Access code not found!');
 				header('Location: '.'/');
 				exit;
 			}

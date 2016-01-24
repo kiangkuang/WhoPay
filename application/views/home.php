@@ -23,6 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
+					<?php if (isset($error)): ?>
+						<p style="color: red;"><?= $error ?></p>
+					<?php endif ?>
 					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#userChoice">New receipt</button>
 					<a href="index.php/main/join" class="btn btn-default">Join</a>
 					<hr>

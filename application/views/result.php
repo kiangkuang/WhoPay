@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<h1><a href="/" style="text-decoration:none; color:black;">WhoPay</a></h1>
-					<label>Share this bill split!</label><br>
+					<label>Share this receipt!</label><br>
 					<div class="col-md-6 col-md-offset-3">
 						<input class="form-control" type="text" value="<?= $url ?>" readonly>
 					</div>

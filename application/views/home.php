@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4 class="modal-title text-center" id="myModalLabel">Setting Up</h4>
 				</div>
 				<div class="modal-body text-center">
-					<form role="form" method="post" enctype="multipart/form-data">
+				<form role="form" method="post" enctype="multipart/form-data" action="/index.php/main/ocr">
 						<div class="fileUpload btn btn-default">
 							<span>Photo of receipt</span>
 							<input type="file" class="upload" id="inputFile" name="file" />

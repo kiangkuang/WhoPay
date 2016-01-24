@@ -156,6 +156,7 @@ class Main extends MY_Controller {
 
 	public function status()
 	{
+		$receiptSubmitted = $this->receipt_model->getById($this->session->receiptId)->submitted;
 		$users = $this->user_model->getByReceiptId($this->session->receiptId);
 		$count = 0;
 		foreach ($users as $user) {
@@ -163,7 +164,7 @@ class Main extends MY_Controller {
 				$count++;
 			}
 		}
-		$output = json_encode(['readied' => $count, 'total' => count($users)]);
+		$output = json_encode(['readied' => $count, 'total' => count($users), 'submitted' => $receiptSubmitted]);
 	    $this->output->set_content_type('text/event-stream')->set_output("data: ".$output."\n\n");
 	    $this->output->set_header('Cache-Control: no-cache');
 	    flush();
@@ -177,6 +178,8 @@ class Main extends MY_Controller {
 		} else {
 			$receiptId = $this->receipt_model->getByCode($receiptCode)->id;
 		}
+		$this->receipt_model->update(['id' => $receiptId, 'submitted' => 1]);
+
 		$results = $this->user_item_model->get_raw_result($receiptId);
 
 		$itemTable = $this->orderByItem($results);

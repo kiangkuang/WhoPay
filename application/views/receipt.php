@@ -18,7 +18,7 @@
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
-					<h1>WhoPay</h1>
+					<h1><a href="/" style="text-decoration:none; color:black;">WhoPay</a></h1>
 					<h4>Access code: <b><?= $receiptCode ?></b></h4>
 					<h3><span style="color:green; font-weight:bold;">Tap</span> on items you want to pay for</h3>
 					<hr>
@@ -31,7 +31,7 @@
 						    </span>
 						<?php endforeach; ?>
 						<button id="ready" type="submit" class="btn btn-primary">Ready</button>
-						<a href="/index.php/main/result" id="submit" class="btn btn-default disabled">Submit</a>
+						<a href="/index.php/main/result/<?= $receiptCode ?>" id="submit" class="btn btn-default disabled">Submit</a>
 					</form>
 				</div>
 				<hr>
@@ -137,7 +137,6 @@
 				}
 				readied++;
 				if (readied == total) {
-					console.log('ll');
 				  	$('#submit').html('Submit').removeClass('disabled');
 				}
 				$('#submit').removeClass('btn-default').addClass('btn-primary');
@@ -150,7 +149,6 @@
 				  	$(buttonArray[i]).removeClass('disabled');
 				}
 				readied--;
-				console.log('22');
 				$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + readied + '/' + total + ' Readied').addClass('disabled').removeClass('btn-primary').addClass('btn-default');
 				$('#ready').removeClass('btn-default').addClass('btn-primary');
 			}
@@ -163,10 +161,14 @@
 		        var data = JSON.parse(event.data);
 		        readied = data.readied;
 		        total = data.total;
+		        submitted = data.submitted;
 		        if (readied != total) {
 				  	$('#submit').html('<img src="/assets/img/loading.gif" style="height:20px;"> ' + data.readied + '/' + data.total + ' Readied').addClass('disabled');
 				} else {
 				  	$('#submit').html('Submit').removeClass('disabled');
+				}
+				if (submitted == 1) {
+					window.location.href = $('#submit').attr('href');
 				}
 		    };
 		} else {

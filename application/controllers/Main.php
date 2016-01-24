@@ -37,23 +37,33 @@ class Main extends MY_Controller {
         if ( ! $this->upload->do_upload('file'))
 		{
             $error = array('error' => $this->upload->display_errors());
-
-            var_dump($error);
-
         }
         else
         {
             $data = array('upload_data' => $this->upload->data());
-
-            
         }
 
-		// $fileName = "./uploads/receipt.jpg";
+        $fileName = $upload['full_path'];
 
-  //       $command = "curl --form \"file=@".$fileName."\" --form \"apikey=helloworld\" --form \"language=eng\" https://api.ocr.space/Parse/Image";
-		// $parsedData = (array) json_decode(shell_exec($command));
+  		$command = "curl --form \"file=@".$fileName."\" --form \"apikey=helloworld\" --form \"language=eng\" https://api.ocr.space/Parse/Image";
+		$parsedData = (array) json_decode(shell_exec($command));
 
+		$parsedString = $parsedData['ParsedResults'][0]->ParsedText;
+		$items = explode("\r\n", $parsedString);
 		
+		$displayItems = array();
+		
+		foreach($items as $item) {
+			if (!$this->isInBlackList($item)) {
+				array_push($displayItems, $item);
+			} else {
+				break;
+			}
+		}
+
+		$data['displayItems'] = $displayItems;
+
+		$this->load->view('create', $data);
 	}
 
 	//join
@@ -257,5 +267,10 @@ class Main extends MY_Controller {
 		}
 
 		return $userTable;
+	}
+
+	private function isInBlackList($name) {
+		$strip = trim(strtolower($name));
+		return is_numeric($name) || $strip === 'total' || $strip === 'change' || $strip === 'subtotal' || $strip === 'cash' || $strip === 'tax';
 	}	
 }

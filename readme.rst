@@ -1,8 +1,8 @@
 ###################
-What is WhoPay
+What is WhoPay - 
 ###################
 
-WhoPay is an Web application to facilitate bill splitting for group outings or fund pooling. WhoPay makes use of OCR technology to quicken the process of bill splitting. Light weight, minimalist and collaborative, WhoPay is easy and intuitive to use. 
+WhoPay is an Web application to facilitate bill splitting for group outings or fund pooling. WhoPay makes use of OCR technology to quicken the process of bill splitting. Light weight, minimalist, mobile-friendly and collaborative, WhoPay is easy and intuitive to use. Try it out `WhoPay <https://whopay.herokuapp.com/>`_
 
 
 *********

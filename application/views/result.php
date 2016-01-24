@@ -21,6 +21,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
 					<h1><a href="/" style="text-decoration:none; color:black;">WhoPay</a></h1>
+					<label>Share this bill split!</label><br>
+					<div class="col-md-6 col-md-offset-3">
+						<input class="form-control" type="text" value="<?= $url ?>" readonly>
+					</div>
+					<div class="col-md-12" style="margin-bottom:20px;">
+						<a href="whatsapp://send?text=<?= $url ?>" data-action="share/whatsapp/share">Share via WhatsApp</a>
+					</div>
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#billbyname" data-toggle="tab" aria-expanded="true">Split bill by names</a></li>
 						<li class=""><a href="#billbyitem" data-toggle="tab" aria-expanded="false">Split bill by items</a></li>

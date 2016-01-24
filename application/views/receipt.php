@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>WhoPay</title>
-	<meta name="description" content="A Simple, Elegant &amp; Flat Bootstrap Theme">
+	<meta name="description" content="Split Receipt">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/assets/dist/css/paper.css">
 	<link rel="stylesheet" href="/assets/assets/css/style.css">

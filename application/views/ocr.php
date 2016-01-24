@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1>WhoPay</h1>
 					<hr>
-					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#userChoice">New bill</button>
+					<a href="index.php/main/create" class="btn btn-default">New bill</a>
 					<a href="index.php/main/join" class="btn btn-default">Join</a>
 					<hr>
 				</div>
@@ -30,25 +30,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 	<br><br>
-
-	<!-- Modal -->
-	<div class="modal fade" id="userChoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title text-center" id="myModalLabel">Choose method of entering bill</h4>
-				</div>
-				<div class="modal-body text-center">
-					<a href="index.php/main/ocr" class="btn btn-default">Take a photo of receipt</a>
-					<a href="index.php/main/create" class="btn btn-default">Manually</a>
-				</div>
-				<div class="modal-footer" id="modalCloseButton">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- Footer -->
 	<div class="container">

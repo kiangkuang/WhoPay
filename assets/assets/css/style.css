@@ -97,3 +97,7 @@
 .panel-title>a {
     text-decoration: none;
 }
+
+#modalCloseButton {
+  text-align: center !important;
+}

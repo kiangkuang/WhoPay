@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
-					<h1>WhoPay</h1>
+					<h1><a href="/" style="text-decoration:none; color:black;">WhoPay</a></h1>
 					<hr>
 					<form action="/index.php/main/receipt" method="post">
 						<fieldset>

@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
-					<h1>WhoPay</h1>
+					<h1><a href="/" style="text-decoration:none; color:black;">WhoPay</a></h1>
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#billbyname" data-toggle="tab" aria-expanded="true">Split bill by names</a></li>
 						<li class=""><a href="#billbyitem" data-toggle="tab" aria-expanded="false">Split bill by items</a></li>

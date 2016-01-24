@@ -31,8 +31,6 @@ class Main extends MY_Controller {
 	// ocr
 	public function ocr()
 	{
-
-		try {
 			$config['upload_path']          = './uploads/';
 	        $config['allowed_types']        = 'gif|jpg|png';
 	        $config['max_size']             =  1000000;
@@ -41,7 +39,9 @@ class Main extends MY_Controller {
 
 	        if ( ! $this->upload->do_upload('file'))
 			{
-	            $error = array('error' => $this->upload->display_errors());
+	            $this->session->set_flashdata('error', $this->upload->display_errors('', ''));
+				header('Location: '.'/');
+				exit;
 	        }
 	        else
 	        {
@@ -69,9 +69,6 @@ class Main extends MY_Controller {
 			$data['displayItems'] = $displayItems;
 
 			$this->load->view('create', $data);
-		} catch (Exception $e) {
-			$this->load->view('home');
-		}
 	}
 
 	//join

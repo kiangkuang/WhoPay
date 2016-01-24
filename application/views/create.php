@@ -30,20 +30,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							<div id="itemlist">
 								<div class="item">
-									<div class="col-md-8">
+									<div class="col-xs-8">
 										<!-- Item Field -->
 										<div class="form-group" id="itemlist" style="margin-top: 0px;">
 											<input type="text" class="form-control itemname" name="items[]" placeholder="Item name">
 										</div>
 									</div>
 
-									<div class="col-md-4">
+									<div class="col-xs-4">
 										<!-- Item Field -->
 										<div class="input-group form-group">
-									      <div class="input-group-addon">$</div>
-									      <input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
-									      <a><span style="position:absolute;top:7px;right:-20px;" class="close remitem">&times;</span></a>
-									    </div>
+											<div class="input-group-addon">$</div>
+												<input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price">
+											<a><span style="position:absolute;top:7px;right:-20px;" class="close remitem">&times;</span></a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -55,16 +55,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<p class="help-block" style="margin-top:20px;">Check to apply Tax and/or Service Charge to the above prices.</p>
 
 							<div class="form-inline" style="margin-bottom:10px;">
-							  <label class="checkbox">
+							  <label class="checkbox" style="display:inline-block !important;">
 							     <input type="checkbox" name="serviceCharge"> Service Charge
 							  </label>
-							  <input type="text" class="form-control" name="serviceChargeValue" value="10" placeholder="Other" style="width:2em;padding:4px;text-align:center;"> %
+							  <input type="text" class="form-control" name="serviceChargeValue" value="10" placeholder="Other" style="width:2em;padding:4px;text-align:center;display:inline-block !important;"> %
 							</div>
 							<div class="form-inline" style="margin-bottom:20px;">
-							  <label class="checkbox">
+							  <label class="checkbox" style="display:inline-block !important;">
 							     <input type="checkbox" name="tax"> Tax
 							  </label>
-							  <input type="text" class="form-control" name="taxValue" value="7" placeholder="Other" style="width:2em;padding:4px;text-align:center;"> %
+							  <input type="text" class="form-control" name="taxValue" value="7" placeholder="Other" style="width:2em;padding:4px;text-align:center;display:inline-block !important;"> %
 							</div>
 
 							<!-- Submit and Cancel Buttons -->

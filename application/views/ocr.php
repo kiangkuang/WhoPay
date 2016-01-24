@@ -51,6 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
 	<script> // Script for capturing video as an image and draw onto canvas
 	// Put event listeners into place
+	var image = new Image();
+
 	window.addEventListener("DOMContentLoaded", function() {
 	// Grab elements, create settings, etc.
 	var canvas = document.getElementById("canvas"),
@@ -62,12 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	};
 
 	// Put video listeners into place
-	if(navigator.getUserMedia) { // Standard
-		navigator.getUserMedia(videoObj, function(stream) {
-			video.src = stream;
-			video.play();
-		}, errBack);
-	} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+	if(navigator.webkitGetUserMedia) { // WebKit-prefixed
 		navigator.webkitGetUserMedia(videoObj, function(stream){
 			video.src = window.webkitURL.createObjectURL(stream);
 			video.play();
@@ -81,11 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	document.getElementById("snap").addEventListener("click", function() {
 		context.drawImage(video, 0, 0, 640, 480);
-		var image = new Image();
 		image.src = canvas.toDataURL("image/png");
-		console.log(image);
-		console.log(image.src);
-
 	});
 }, false);
 
@@ -94,7 +87,7 @@ var formData = new FormData();
 formData.append("file", "image");
 formData.append("url", "image.src");
 formData.append("language", "eng");
-formData.append("apikey", "Your-API-Key-Here");
+formData.append("apikey", "helloworld");
 
 formData.append("isOverlayRequired", false);
 

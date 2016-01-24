@@ -51,6 +51,7 @@ DROP TABLE IF EXISTS `receipt`;
 CREATE TABLE `receipt` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(45) NOT NULL,
+  `submitted` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -61,7 +62,7 @@ CREATE TABLE `receipt` (
 
 LOCK TABLES `receipt` WRITE;
 /*!40000 ALTER TABLE `receipt` DISABLE KEYS */;
-INSERT INTO `receipt` VALUES (1,'VC3439');
+INSERT INTO `receipt` VALUES (1,'VC3439',0);
 /*!40000 ALTER TABLE `receipt` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +88,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,1,'Oswell',0),(2,1,'Kk',0),(3,1,'yip',0),(4,1,'Victor',0);
+INSERT INTO `user` VALUES (1,1,'Oswell',1),(2,1,'Kk',1),(3,1,'yip',1),(4,1,'Victor',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,4 +127,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-24  2:02:21
+-- Dump completed on 2016-01-24 10:48:37

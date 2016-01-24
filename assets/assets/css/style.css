@@ -65,16 +65,6 @@
   padding: 30px;
 }
 
-.itemname {
-	display: inline-block;
-	width:71%;
-}
-
-.itemcost {
-	display:inline-block;
-	width:20%;
-}
-
 .nav-tabs > li, .nav-pills > li {
     float:none;
     display:inline-block;
@@ -85,13 +75,6 @@
 .nav-tabs, .nav-pills {
     text-align:center;
     margin-bottom: 20px;
-}
-
-.dollarsign {
-	background-color: gray;
-	display:inline-block;
-	margin-left: 5px;
-	padding : 7px 5px 6px 1px;	
 }
 
 .panel-title>a {

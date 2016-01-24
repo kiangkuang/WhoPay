@@ -1,15 +1,17 @@
 $(function(){
 	var itemlist = $('#itemlist');
-	var count = $('#itemlist p').size();
+	var count = $('#itemlist .input-group-addon').size();
+	crossVisibility()
 	
 	// Adding new items
 	$('#additem').click(function(){
 		$('.remitem').unbind();
-		$('<p><input type="text" class="form-control itemname" name="items[]" placeholder="Item name"><span class="dollarsign">$</span><input type="text" class="form-control itemcost" name="itemcosts[]" placeholder="Price"><label><a href="#" type="button" class="close remitem">x</a></label></p>').appendTo(itemlist);
+		$(itemlist).append('<div class="item"><div class="col-md-8"><div class="form-group" id="itemlist" style="margin-top: 0px;"><input type="text" class="form-control itemname" name="items[]" placeholder="Item name"></div></div><div class="col-md-4"><div class="input-group form-group"><div class="input-group-addon">$</div><input type="text" class="form-control" class="form-control itemcost" name="itemcosts[]" placeholder="Price"><a><span style="position:absolute;top:7px;right:-20px;" class="close remitem">&times;</span></a></div></div></div>');
 		count++;
 		console.log(count);
 
 		removeItem();
+		crossVisibility()
 		return false;
 	});
 
@@ -18,13 +20,22 @@ $(function(){
 	function removeItem(){
 		$('.remitem').click(function(){
 			if(count > 1) {
-				$(this).parents('p').remove();
+				$(this).parents('.item').remove();
 				count--;
 				console.log("reduced 1");
 			} else {
 				console.log("failed count check");
 			}
+			crossVisibility()
 			return false;
 		});
+	}
+
+	function crossVisibility(){
+		if (count > 1) {
+			$('.remitem').show();
+		} else {
+			$('.remitem').hide();
+		}
 	}
 });

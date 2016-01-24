@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/assets/dist/css/paper.min.css">
 	<link rel="stylesheet" href="/assets/assets/css/style.css">
+	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

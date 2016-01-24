@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h1>WhoPay</h1>
 					<hr>
 					<video id="video" width="555" height="480" autoplay></video>
-					<button type="button" class="btn btn-default" id="snap">Snap Photo of Receipt</button>
+					<button type="button" class="btn btn-default" id="snap">Snap photo of receipt</button>
 					<canvas id="canvas" width="640" height="480"></canvas>
 					<hr>
 				</div>
@@ -63,7 +63,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	};
 
 	// Put video listeners into place
-	if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+	if(navigator.getUserMedia) { // Standard
+		navigator.getUserMedia(videoObj, function(stream) {
+			video.src = stream;
+			video.play();
+		}, errBack);
+	} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
 		navigator.webkitGetUserMedia(videoObj, function(stream){
 			video.src = window.webkitURL.createObjectURL(stream);
 			video.play();
@@ -80,34 +85,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		image.src = canvas.toDataURL("image/png");
 	});
 }, false);
-
-//Prepare form data
-var formData = new FormData();
-formData.append("file", "image");
-formData.append("url", "image.src");
-formData.append("language", "eng");
-formData.append("apikey", "helloworld");
-
-formData.append("isOverlayRequired", false);
-
-//Send OCR Parsing request asynchronously
-jQuery.ajax({
-	url: 'https://api.ocr.space/parse/image',
-	data: formData,
-	dataType: 'json',
-	cache: false,
-	contentType: false,
-	processData: false,
-	type: 'json',
-	success: function (ocrParsedResult) {
-//Get the parsed results, exit code and error message and details
-var parsedResults = ocrParsedResult["ParsedResults"];
-var ocrExitCode = ocrParsedResult["OCRExitCode"];
-var isErroredOnProcessing = ocrParsedResult["IsErroredOnProcessing"];
-var errorMessage = ocrParsedResult["ErrorMessage"];
-var errorDetails = ocrParsedResult["ErrorDetails"];
-var processingTimeInMilliseconds = ocrParsedResult["ProcessingTimeInMilliseconds"];
-}});
 
 
 </script>

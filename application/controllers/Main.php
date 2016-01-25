@@ -33,7 +33,7 @@ class Main extends MY_Controller {
 	{
 			$config['upload_path']          = './uploads/';
 	        $config['allowed_types']        = 'gif|jpg|png';
-	        $config['max_size']             =  1000000;
+	        $config['max_size']             =  15000;
 
 	        $this->load->library('upload', $config);
 

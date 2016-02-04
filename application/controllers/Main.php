@@ -54,8 +54,28 @@ class Main extends MY_Controller {
 	        }
 
 	        $fileName = $upload['full_path'];
+			
+			list($width_orig, $height_orig) = getimagesize($fileName);
 
-	  		$command = "curl --form \"file=@".$fileName."\" --form \"apikey=helloworld\" --form \"language=eng\" https://api.ocr.space/Parse/Image";
+			if ($width_orig > 2500 || $height_orig >2500) {
+				$width = 2500;
+				$height = 2500;
+
+				$ratio_orig = $width_orig/$height_orig;
+
+				if ($width/$height > $ratio_orig) {
+				   $width = $height*$ratio_orig;
+				} else {
+				   $height = $width/$ratio_orig;
+				}
+
+				$image_p = imagecreatetruecolor($width, $height);
+				$image = imagecreatefromjpeg($fileName);
+				imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+				imagejpeg($image_p, $fileName, 100);
+			}
+
+			$command = "curl --form \"file=@".$fileName."\" --form \"apikey=helloworld\" --form \"language=eng\" https://api.ocr.space/Parse/Image";
 			$parsedData = (array) json_decode(shell_exec($command));
 
 			$parsedString = $parsedData['ParsedResults'][0]->ParsedText;

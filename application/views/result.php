@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								foreach ($userTable as $user): ?>
 								<div class="panel-group">
 									<div class="panel panel-default">
-										<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<?= $count ?>">
+										<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<?= $count ?>" herf="#collapse<?= $count ?>">
 											<h4 class="panel-title" >
 												<a class="accordion-toggle"><span class="pull-left"><?= $user[0]?></span>&nbsp;<span class="pull-right">$<?= number_format(round($user[1], 2, PHP_ROUND_HALF_UP), 2, '.', '') ?></span></a>
 											</h4>
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						foreach ($itemTable as $item): ?>
 						<div class="panel-group">
 							<div class="panel panel-default">
-								<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<?= $count ?>">
+								<div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse<?= $count ?>" herf="#collapse<?= $count ?>">
 									<h4 class="panel-title">
 										<a class="accordion-toggle"><span class="pull-left"><?= $item[0] ?></span>&nbsp;<span class="pull-right">$<?= number_format(round($item[1], 2, PHP_ROUND_HALF_UP), 2, '.', '') ?></a>
 									</h4>

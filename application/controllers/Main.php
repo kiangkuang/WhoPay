@@ -3,32 +3,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends MY_Controller {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('receipt_model');
-        $this->load->model('user_model');
-        $this->load->model('item_model');
-        $this->load->model('user_item_model');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('receipt_model');
+		$this->load->model('user_model');
+		$this->load->model('item_model');
+		$this->load->model('user_item_model');
+	}
 
 	// new or join button
 	public function index()
 	{
 		$data = [];
 		if ($this->session->error){
-            $data['error'] = $this->session->error;
-        }
+			$data['error'] = $this->session->error;
+		}
 
-        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+		$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 		$this->load->view('home', $data);
 	}
 
 	// manual create. submits name and items to createManual()
 	public function create()
 	{
-        $data = [];
-        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+		$data = [];
+		$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 		$this->load->view('create', $data);
 	}
@@ -36,24 +36,24 @@ class Main extends MY_Controller {
 	// ocr
 	public function ocr()
 	{
-			$config['upload_path']          = './uploads/';
-	        $config['allowed_types']        = 'gif|jpg|png';
-	        $config['max_size']             =  15000;
+			$config['upload_path']		  = './uploads/';
+			$config['allowed_types']		= 'gif|jpg|png';
+			$config['max_size']			 =  15000;
 
-	        $this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 
-	        if ( ! $this->upload->do_upload('file'))
+			if ( ! $this->upload->do_upload('file'))
 			{
-	            $this->session->set_flashdata('error', $this->upload->display_errors('', ''));
+				$this->session->set_flashdata('error', $this->upload->display_errors('', ''));
 				header('Location: '.'/');
 				exit;
-	        }
-	        else
-	        {
-	            $upload = $this->upload->data();
-	        }
+			}
+			else
+			{
+				$upload = $this->upload->data();
+			}
 
-	        $fileName = $upload['full_path'];
+			$fileName = $upload['full_path'];
 			
 			list($width_orig, $height_orig) = getimagesize($fileName);
 
@@ -64,9 +64,9 @@ class Main extends MY_Controller {
 				$ratio_orig = $width_orig/$height_orig;
 
 				if ($width/$height > $ratio_orig) {
-				   $width = $height*$ratio_orig;
+					$width = $height*$ratio_orig;
 				} else {
-				   $height = $width/$ratio_orig;
+					$height = $width/$ratio_orig;
 				}
 
 				$image_p = imagecreatetruecolor($width, $height);
@@ -80,9 +80,9 @@ class Main extends MY_Controller {
 
 			$parsedString = $parsedData['ParsedResults'][0]->ParsedText;
 			$items = explode("\r\n", $parsedString);
-			
+
 			$displayItems = array();
-			
+
 			foreach($items as $item) {
 				if (!$this->isInBlackList($item)) {
 					array_push($displayItems, $item);
@@ -92,8 +92,8 @@ class Main extends MY_Controller {
 			}
 
 			$data['displayItems'] = $displayItems;
-        	
-        	$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+
+			$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 			$this->load->view('create', $data);
 	}
@@ -102,7 +102,7 @@ class Main extends MY_Controller {
 	public function join()
 	{
 		$data = [];
-        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+		$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 		$this->load->view('join', $data);
 	}
@@ -133,7 +133,7 @@ class Main extends MY_Controller {
 			$receiptId = $this->receipt_model->insert(['code' => $receiptCode]);
 		}
 		$this->session->set_userdata('receiptId', $receiptId);
-		
+
 		// generate user session
 		$name = $input['name']; // user name
 		$userId = $this->user_model->insert(['name' => $name, 'receipt_id' => $receiptId]);
@@ -167,7 +167,7 @@ class Main extends MY_Controller {
 
 		$data['userId'] = $userId;
 
-        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+		$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 		$this->load->view('receipt', $data);
 	}
@@ -215,9 +215,9 @@ class Main extends MY_Controller {
 			}
 		}
 		$output = json_encode(['readied' => $count, 'total' => count($users), 'submitted' => $receiptSubmitted]);
-	    $this->output->set_content_type('text/event-stream')->set_output("data: ".$output."\n\n");
-	    $this->output->set_header('Cache-Control: no-cache');
-	    flush();
+		$this->output->set_content_type('text/event-stream')->set_output("data: ".$output."\n\n");
+		$this->output->set_header('Cache-Control: no-cache');
+		flush();
 	}
 
 	// result
@@ -241,7 +241,7 @@ class Main extends MY_Controller {
 		$data['isMobile'] = $this->agent->is_mobile();
 		$data['url'] = $_SERVER['SERVER_NAME'].'/index.php/'.uri_string();
 
-        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+		$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 		$this->load->view('result', $data);
 	}
@@ -305,8 +305,8 @@ class Main extends MY_Controller {
 					array_push($userTable[$payer[0]], array($payers[0], $payer[2]));
 				} else {
 					$userTable[$payer[0]] = array($payer[1], $payer[2], array($payers[0], $payer[2]));
-				}	
-			}	
+				}
+			}
 		}
 
 		return $userTable;
@@ -315,5 +315,5 @@ class Main extends MY_Controller {
 	private function isInBlackList($name) {
 		$strip = trim(strtolower($name));
 		return is_numeric($name) || $strip === 'total' || $strip === 'change' || $strip === 'subtotal' || $strip === 'cash' || $strip === 'tax';
-	}	
+	}
 }

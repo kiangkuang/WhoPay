@@ -9,6 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>WhoPay</title>
 	<meta name="description" content="View Receipt">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="http://<?= $ogImg ?>">
+    <meta property="og:image:secure_url" content="https://<?= $ogImg ?>">
 	<link rel="stylesheet" href="/assets/dist/css/paper.min.css">
 	<link rel="stylesheet" href="/assets/assets/css/style.css">
 	<link rel="shortcut icon" href="/assets/img/favicon1.ico" type="image/x-icon">

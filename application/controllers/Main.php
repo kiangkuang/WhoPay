@@ -19,13 +19,18 @@ class Main extends MY_Controller {
 		if ($this->session->error){
             $data['error'] = $this->session->error;
         }
+
+        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 		$this->load->view('home', $data);
 	}
 
 	// manual create. submits name and items to createManual()
 	public function create()
 	{
-		$this->load->view('create');
+        $data = [];
+        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+
+		$this->load->view('create', $data);
 	}
 
 	// ocr
@@ -67,6 +72,8 @@ class Main extends MY_Controller {
 			}
 
 			$data['displayItems'] = $displayItems;
+        	
+        	$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 			$this->load->view('create', $data);
 	}
@@ -74,7 +81,10 @@ class Main extends MY_Controller {
 	//join
 	public function join()
 	{
-		$this->load->view('join');
+		$data = [];
+        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+
+		$this->load->view('join', $data);
 	}
 
 	// lobby
@@ -136,6 +146,8 @@ class Main extends MY_Controller {
 		$data['items'] = $items;
 
 		$data['userId'] = $userId;
+
+        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 		$this->load->view('receipt', $data);
 	}
@@ -208,6 +220,8 @@ class Main extends MY_Controller {
 
 		$data['isMobile'] = $this->agent->is_mobile();
 		$data['url'] = $_SERVER['SERVER_NAME'].'/index.php/'.uri_string();
+
+        $data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
 
 		$this->load->view('result', $data);
 	}

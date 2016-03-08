@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<p style="color: red;"><?= $error ?></p>
 					<?php endif ?>
 					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#userChoice">New receipt</button>
-					<a href="index.php/main/join" class="btn btn-default">Join</a>
+					<a href="/join" class="btn btn-default">Join</a>
 					<hr>
 				</div>
 			</div>
@@ -48,11 +48,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="modal-body text-center">
 					<div class="fileUpload btn btn-default">
 						<span>Photo of receipt</span>
-						<form id="form" role="form" method="post" enctype="multipart/form-data" action="/index.php/main/ocr">
+						<form id="form" role="form" method="post" enctype="multipart/form-data" action="/ocr">
 							<input type="file" class="upload" id="inputFile" name="file" />
 						</div>
 					</form>
-					<a href="index.php/main/create" class="btn btn-default">Manual entry</a>
+					<a href="/create" class="btn btn-default">Manual entry</a>
 					<br>
 					<img src="/assets/img/loading.gif" style="height:40px;" class="hidden" id="loading">
 				</div>

@@ -25,7 +25,7 @@
 					<h4>Access code: <b><?= $receiptCode ?></b></h4>
 					<h3><span style="color:green; font-weight:bold;">Tap</span> on items you want to pay for</h3>
 					<hr>
-					<form action="/index.php/main/ready" method="post">
+					<form action="/ready" method="post">
 						<input type="hidden" name="userId" value="<?= $userId ?>">
 						<?php foreach ($items as $item): ?>
 						    <span class="button-checkbox">
@@ -34,7 +34,7 @@
 						    </span>
 						<?php endforeach; ?>
 						<button id="ready" type="submit" class="btn btn-primary">Ready</button>
-						<a href="/index.php/main/result/<?= $receiptCode ?>" id="submit" class="btn btn-default disabled">Submit</a>
+						<a href="/result/<?= $receiptCode ?>" id="submit" class="btn btn-default disabled">Submit</a>
 					</form>
 				</div>
 				<hr>
@@ -141,7 +141,7 @@
 				
 				if ($('#ready').html() == 'Ready') {
 					$('#ready').html('Unready');
-					$('form').attr('action', '/index.php/main/unready');
+					$('form').attr('action', '/unready');
 
 					for (var i = 0; i <buttonArray.length; i++) {
 					  	$(buttonArray[i]).addClass('disabled');
@@ -154,7 +154,7 @@
 					$('#ready').removeClass('btn-primary').addClass('btn-default');
 				} else if ($('#ready').html() == 'Unready') {
 					$('#ready').html('Ready');
-					$('form').attr('action', '/index.php/main/ready');
+					$('form').attr('action', '/ready');
 
 					for (var i = 0; i <buttonArray.length; i++) {
 						$(buttonArray[i]).removeClass('disabled');
@@ -167,7 +167,7 @@
 		});
 
 		if(typeof(EventSource) !== "undefined") {
-				var source = new EventSource("/index.php/main/status");
+				var source = new EventSource("/status");
 				source.onmessage = function(event) {
 				var data = JSON.parse(event.data);
 				readied = data.readied;

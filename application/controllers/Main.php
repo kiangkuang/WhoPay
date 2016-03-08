@@ -45,7 +45,7 @@ class Main extends MY_Controller {
 			if ( ! $this->upload->do_upload('file'))
 			{
 				$this->session->set_flashdata('error', $this->upload->display_errors('', ''));
-				header('Location: '.'/');
+				redirect('/');
 				exit;
 			}
 			else
@@ -112,7 +112,7 @@ class Main extends MY_Controller {
 	{
 		$input = $this->input->post();
 		if (!$input) {
-			header('Location: '.'/');
+			redirect('/');
 			exit;
 		}
 
@@ -124,7 +124,7 @@ class Main extends MY_Controller {
 				$receiptId = $receipt->id;
 			} else {
 				$this->session->set_flashdata('error', 'Access code not found!');
-				header('Location: '.'/');
+				redirect('/');
 				exit;
 			}
 		} else {
@@ -239,9 +239,14 @@ class Main extends MY_Controller {
 		$data['userTable'] = $userTable;
 
 		$data['isMobile'] = $this->agent->is_mobile();
-		$data['url'] = $_SERVER['SERVER_NAME'].'/index.php/'.uri_string();
 
-		$data['ogImg'] = $_SERVER['SERVER_NAME'].'/assets/img/opengraph.png';
+		if (!empty($_SERVER['HTTPS'])) {
+			$data['url'] = 'https://'.$_SERVER['HTTP_HOST'].'/'.uri_string();
+		} else {
+			$data['url'] = 'http://'.$_SERVER['HTTP_HOST'].'/'.uri_string();
+		}
+
+		$data['ogImg'] = $_SERVER['HTTP_HOST'].'/assets/img/opengraph.png';
 
 		$this->load->view('result', $data);
 	}

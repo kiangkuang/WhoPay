@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="text-center">
 					<h1><a href="/" style="text-decoration:none; color:black;">WhoPay</a></h1>
 					<hr>
-					<form action="/index.php/main/receipt" method="post">
+					<form action="/receipt" method="post">
 						<fieldset>
 							<!-- Name Field -->
 							<div class="col-xs-12">
